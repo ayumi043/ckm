@@ -26,8 +26,11 @@
 
 development:
   adapter: mysql2
-  host: localhost 
+  encoding: utf8
+  # host: localhost 
   username: root
   password: "LIN7308217"
   database: ckm_db
+  host: 127.0.0.1
+  port: 3306
 
