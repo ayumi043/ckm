@@ -44,3 +44,6 @@ gem 'pry'
 gem 'ueditor_rails', :git => 'https://github.com/jasl/ueditor_rails.git'
 
 # gem 'mime-types'
+
+gem 'execjs'
+gem 'therubyracer'
