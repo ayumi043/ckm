@@ -3,10 +3,10 @@ class Product < ActiveRecord::Base
 
   set_table_name "product"
 
-  validates :prodname, :presence => { :message => "不能为空" }
+  validates :prodname, :presence => { :message => "bu neng wei kong" }
   # validates :pic, :presence => //
   validates :picture, :format => {
     :with => %r{\.(png|jpg|jpeg|gif)$}i,
-    :message => '格式不符合啊'
+    :message => 'ge shi bu dui'
   }
 end

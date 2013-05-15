@@ -6,9 +6,9 @@ class Article < ActiveRecord::Base
   def state_name    
     re = nil
     if self.state == 1
-      re = "启用"
+      re = "enable"
     elsif self.state == 0
-      re = "禁用"    
+      re = "disable"    
     end
     re 
   end    
