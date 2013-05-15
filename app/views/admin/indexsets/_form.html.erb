@@ -1,0 +1,45 @@
+<%= form_for [:admin, @indexset] do |f| %>
+
+  <% if @indexset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <%# binding.pry %>
+      <% @indexset.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% errors = @indexset.errors.messages %>
+
+  <div class="field">
+    <%= f.label :模块名称 %><br />
+    <span><input type="text" name="indexset[module]" value="<%= @indexset.module %>" /></span>
+    <span style="color:#f60;"><%= errors[:module].first if errors[:module] %></span>
+  </div>
+
+  <div class="field">
+    <%= f.label :标题 %><br />
+    <%= f.text_field :title %>
+    <span style="color:#f60;"><%= errors[:title].first if errors[:title] %></span>
+  </div>
+
+  <div class="field">
+    <%= f.label :图片 %><br />
+    <%= f.file_field :picture %>
+    <span style="color:#f60;"><%= "#{errors[:picture].first}" if errors[:picture] %></span>
+  </div>
+
+  <div class="field">
+    <%= f.label :链接地址 %><br />
+    <%= f.text_field :url %>
+    <span style="color:#f60;"><%= "#{errors[:url].first}" if errors[:url] %></span>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

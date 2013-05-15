@@ -1,0 +1,39 @@
+<%= form_for [:admin, @about] do |f| %>
+
+  <% if @about.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@about.errors.count, "error") %> prohibited this about from being saved:</h2>
+
+      <ul>
+      <%# binding.pry %>
+      <% @about.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% errors = @about.errors.messages %>
+
+  <div class="field">
+    <span>
+      <h3><%= @about.title %></h3>
+    </span>
+  </div>
+
+  <div class="field">
+    <%= f.label :状态 %><br />
+    启用:<%= f.check_box :state %>
+    <span style="color:#f60;"><%= "#{errors[:state].first}" if errors[:state] %></span>
+  </div>
+
+  <div class="field">
+    <%= f.label :描述 %><br />
+    <%= f.ueditor_text :content %>
+    <span style="color:#f60;"><%= "#{errors[:content].first}" if errors[:content] %></span>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

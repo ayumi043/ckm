@@ -1,0 +1,19 @@
+<h1>走进车快美设置</h1>
+
+<table>
+  <th>
+    <td>名称</td>
+    <td>内容</td>
+    <td>状态</td>
+    <td>操作</td>
+  </th>
+<% @abouts.each do |about| %>
+  <tr>
+    <td><%= about.title %></td>
+    <td><%= about.content %></td>
+    <td><%= about.state_name %></td>
+    <!-- <td><%= link_to '预览', admin_about_path(about) %></td> -->
+    <td><%= link_to 'Edit', edit_admin_about_path(about) %></td>
+  </tr>
+<% end %>
+</table>

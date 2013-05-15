@@ -1,0 +1,25 @@
+<h1>所有产品</h1>
+
+<table>
+  <th>
+    <td>名称</td>
+    <td>缩略图</td>
+    <td>内容</td>
+    <td colspan="3">操作</td>
+  </th>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.prodname %></td>
+    <td><%= image_tag(product.picture) %></td>
+    <td><%= raw product.description %></td>
+    <td><%= link_to 'Show', admin_product_path(product) %></td>
+    <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
+    <td><%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+  
+
+<br />
+
+<%= link_to '新建首页设置', new_admin_product_path %>

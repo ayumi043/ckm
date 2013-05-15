@@ -1,0 +1,27 @@
+<h1>所有首页模块设置</h1>
+
+<table>
+  <th>
+    <td>模块名称</td>
+    <td>标题</td>
+    <td>url</td>
+    <td>图片</td>
+    <td colspan="3">操作</td>
+  </th>
+<% @indexsets.each do |indexset| %>
+  <tr>
+    <td><%= indexset.module %></td>
+    <td><%= indexset.title %></td>
+    <td><%= indexset.url %></td>
+    <td><%= image_tag(indexset.picture) %></td>
+    <td><%= link_to 'Show', admin_indexset_path(indexset) %></td>
+    <td><%= link_to 'Edit', edit_admin_indexset_path(indexset) %></td>
+    <td><%= link_to 'Destroy', admin_indexset_path(indexset), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+  
+
+<br />
+
+<%= link_to '新建产品系列', new_admin_indexset_path %>

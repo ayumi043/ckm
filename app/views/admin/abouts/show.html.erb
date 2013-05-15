@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>模块名称:</b>
+  <%= @about.title %>
+</p>
+
+<p>
+  <b>状态:</b>
+  <%= @about.state_name %>
+</p>
+
+<p>
+  <b>链接地址:</b>
+  <%= raw @indexset.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_indexset_path(@indexset) %> |
+<%= link_to 'Back', admin_indexset_path %>
