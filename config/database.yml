@@ -28,6 +28,6 @@ development:
   adapter: mysql2
   host: localhost 
   username: root
-  password: "lin7308217"
+  password: "LIN7308217"
   database: ckm_db
 
