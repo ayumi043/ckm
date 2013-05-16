@@ -26,7 +26,7 @@ class UploadsController < ApplicationController
         f.write(uploaded_io.read)  
       end  
 
-      binding.pry
+      # binding.pry
 
       render json: {
         "url" => "/upload/#{Time.now.strftime("%Y%m%d")}/#{@filename}",
@@ -94,7 +94,7 @@ class UploadsController < ApplicationController
       # require 'SecureRandom'  
       # binding.pry
       # filename.sub(/.*./, SecureRandom.hex+'.') 
-      filename.sub(/(.*)\./.match(filename)[1], Time.now.to_f.to_s.delete('.') + '.')
+      filename.sub(/(.*)\./.match(filename)[1], Time.now.to_f.to_s.delete('.'))
     end  
   end  
 
