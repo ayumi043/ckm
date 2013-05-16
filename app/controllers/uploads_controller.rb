@@ -62,7 +62,7 @@ class UploadsController < ApplicationController
 
     # uploaded_io = params[:person][:picture]  
     uploaded_io = params[:upfile]
-    binding.pry
+    # binding.pry
     if uploaded_io != nil
       @filename=getFileName(uploaded_io.original_filename)
 
