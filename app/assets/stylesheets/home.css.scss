@@ -1,0 +1,115 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.header{
+  width: 100%;
+  height: 145px;
+}
+.top{
+  width: 990px;
+  height: 100px;
+  background: url(logo.gif) 8px 38px no-repeat;
+}
+.menu{
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  background: url(menu_bg.gif) repeat-x;
+}
+.menu ul{
+  width:990px;
+  margin:0 auto;
+}
+.menu li{
+  width: 110px;
+  float: left;
+  color:#fff;
+  font-size: 14px;
+  text-align: center;
+}
+#home{
+  width:90px;
+}
+.menu li a{
+  color: #fff;
+}
+.select{
+  background: url(menu_select.gif) repeat-x;
+}
+.map{
+  width:990px;
+  height: 350px;
+  margin-top: 10px; 
+  overflow: hidden
+}
+#container{
+  width:990px;height: 350px;margin-left: 990px;
+}
+.content{
+  margin-top: 15px;width: 990px;
+}
+.le{
+  float: left;
+  width: 690px;
+  .title{
+    border-bottom: 4px solid #004ca7;
+    height: 32px;
+  }
+  .hh{
+    float: left;
+    width: 90px;
+    color: #fff;
+    background: #004ca7;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .hh a{
+    color:#fff;
+  }
+  .more{
+    float: right;
+    width: 80px;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 14px;
+    line-height: 34px;
+  }
+  .more a{
+    color: #333;
+  } 
+  .box{
+    margin-top: 12px;
+    background: url(cbg.gif) 0px bottom repeat-x;
+    height: 215px;
+    .txtz{
+      width: 375px;float: left;
+      li{
+        height: 28px;line-height: 28px;
+        background: url(ico.gif) 16px 50% no-repeat;
+        padding-left: 30px;
+        overflow: hidden;
+      }
+      li a{
+        font-size: 14px;
+        color:#666;
+      }
+    }
+
+  }
+  .focus{
+    float: left;
+    width: 305px;
+  }
+  #pro{
+    margin-top: 22px;
+  }
+}
+
+.sm{
+  font-size: 14px; line-height: 25px;padding: 8px 30px 20px 14px;
+}
+

@@ -47,3 +47,5 @@ gem 'ueditor_rails', :git => 'https://github.com/jasl/ueditor_rails.git'
 
 gem 'execjs'
 gem 'therubyracer'
+
+gem 'simple_form'

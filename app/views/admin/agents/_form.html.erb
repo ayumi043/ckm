@@ -1,0 +1,44 @@
+<%= simple_form_for [:admin, @agent] do |f| %>
+
+  <% if @agent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this about from being saved:</h2>
+
+      <ul>
+      <%# binding.pry %>
+      <% @agent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% errors = @agent.errors.messages %>
+
+  <div class="field">
+    <%= f.label :名称 %><br />
+    <span>
+      <h3><%= f.text_field :name %></h3>
+    </span>
+  </div>
+
+  <div class="field">
+    <%= f.label :省份 %><br />
+    <%#= f.collection_select :province_id, Province.all, :id, :name %>
+
+    <%#= f.input :province_ids, :as => :radio_buttons, :collection => Province.all, 
+                    :input_html => { :size => 1, :checked => Proc.new{ 2 < 1}  } %>
+
+    <%= f.association :province, as: :radio_buttons, :label => "所属省份：" %>                
+  </div>
+
+  <div class="field">
+    <%= f.label :描述 %><br />
+    <%= f.ueditor_text :description %>
+    <span style="color:#f60;"><%= "#{errors[:description].first}" if errors[:description] %></span>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

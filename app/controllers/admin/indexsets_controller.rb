@@ -1,5 +1,7 @@
 class Admin::IndexsetsController < ApplicationController
 
+  layout "admin"
+
   # GET /posts
   def index
     @indexsets = Indexset.all

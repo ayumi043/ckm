@@ -1,0 +1,24 @@
+<h1>资讯设置</h1>
+
+<table>
+  <th>
+    <td>名称</td>
+    <td>省份</td>
+    <td>内容</td>
+    <td>操作</td>
+  </th>
+<% @agents.each do |agent| %>
+  <tr>
+    <td><%= agent.name %></td>
+    <td><%= agent.province.name %></td>
+    <td><%= agent.description %></td>
+    <td><%= link_to '预览', admin_agent_path(agent) %></td>
+    <td><%= link_to 'Edit', edit_admin_agent_path(agent) %></td>
+    <td><%= link_to 'Destroy', admin_agent_path(agent), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '添加新闻', new_admin_agent_path %>

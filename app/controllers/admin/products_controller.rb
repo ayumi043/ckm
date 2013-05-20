@@ -1,5 +1,7 @@
 class Admin::ProductsController < ApplicationController
 
+  layout "admin"
+
   # GET /posts
   def index
     @products = Product.all

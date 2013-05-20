@@ -18,8 +18,9 @@ Ckm::Application.routes.draw do
 
     resources :articles
     resources :abouts
+    resources :agents
   end
 
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 
 end

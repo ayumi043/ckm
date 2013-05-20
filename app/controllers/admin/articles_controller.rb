@@ -1,5 +1,7 @@
 class Admin::ArticlesController < ApplicationController
 
+  layout "admin"
+
   def index
     @articles = Article.where(:ty_id => 23)
 

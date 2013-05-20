@@ -1,5 +1,7 @@
 class Admin::AboutsController < ApplicationController
 
+  layout "admin"
+
   def index
     @abouts = About.where(:ty_id => [1,2,3,4])
 

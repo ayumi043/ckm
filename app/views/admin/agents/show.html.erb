@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>名称:</b>
+  <%= @agent.name %>
+</p>
+
+<p>
+  <b>所属省份:</b>
+  <%= @agent.province.name %>
+</p>
+
+
+<p>
+  <b>描述:</b>
+  <%= raw @agent.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_agent_path(@agent) %> |
+<%= link_to 'Back', admin_agent_path %>
