@@ -1,3 +1,10 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_abouts_path %>">走进车快美</a> <span class="divider">/</span> 
+  </li>
+  <li class="active"><%= @about.title %></li>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,10 +18,10 @@
 </p>
 
 <p>
-  <b>链接地址:</b>
-  <%= raw @indexset.url %>
+  <b>详细内容:</b>
+  <%= raw @about.content %>
 </p>
 
 
-<%= link_to 'Edit', edit_admin_indexset_path(@indexset) %> |
-<%= link_to 'Back', admin_indexset_path %>
+<%= link_to '编辑', edit_admin_about_path(@about) %> |
+<%= link_to '返回', admin_abouts_path %>

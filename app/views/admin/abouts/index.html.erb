@@ -1,19 +1,44 @@
-<h1>走进车快美设置</h1>
 
-<table>
-  <th>
-    <td>名称</td>
-    <td>内容</td>
-    <td>状态</td>
-    <td>操作</td>
-  </th>
-<% @abouts.each do |about| %>
-  <tr>
-    <td><%= about.title %></td>
-    <td><%= about.content %></td>
-    <td><%= about.state_name %></td>
-    <!-- <td><%= link_to '预览', admin_about_path(about) %></td> -->
-    <td><%= link_to 'Edit', edit_admin_about_path(about) %></td>
-  </tr>
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_abouts_path %>">走进车快美</a>
+  </li> 
 <% end %>
-</table>
+
+<div class="row-fluid">
+
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">走进车快美</div>         
+      </div>
+      <div class="block-content collapse in">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th width="110">名称</th>
+                      <th>内容</th>
+                      <th width="120">状态</th>
+                      <th width="120">操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                <% @abouts.each do |about| %>
+                  <tr>
+                    <td><%= about.title %></td>
+                    <td><%= raw about.content %></td>
+                    <td><%= about.state_name %></td>
+                    <td>
+                        <a href="<%= admin_about_path(about) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
+                        <a href="<%= edit_admin_about_path(about) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
+                    </td>                   
+                  </tr>
+                <% end %>
+              
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <!-- /block -->
+</div>  

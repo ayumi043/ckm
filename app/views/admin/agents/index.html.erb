@@ -1,24 +1,51 @@
-<h1>资讯设置</h1>
+<div class="row-fluid">
 
-<table>
-  <th>
-    <td>名称</td>
-    <td>省份</td>
-    <td>内容</td>
-    <td>操作</td>
-  </th>
-<% @agents.each do |agent| %>
-  <tr>
-    <td><%= agent.name %></td>
-    <td><%= agent.province.name %></td>
-    <td><%= agent.description %></td>
-    <td><%= link_to '预览', admin_agent_path(agent) %></td>
-    <td><%= link_to 'Edit', edit_admin_agent_path(agent) %></td>
-    <td><%= link_to 'Destroy', admin_agent_path(agent), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+  <div>
+     <a href="<%= new_admin_agent_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加</a>
+  </div>
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">首页代理设置</div>         
+      </div>
+      <div class="block-content collapse in">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>公司名称</th>
+                      <th>备注</th>
+                      <th width="120">省份</th>
+                      <th width="210">操作</th>
+                  </tr>
+              </thead>
+              <tbody>
 
-<br />
+                <% @agents.each do |agent| %>
+                  <tr>
+                    <td><%= agent.name %></td>
+                    <td><%= raw agent.description %></td>
+                    <td><%= agent.province.name %></td>
+                    <td>
+                        <a href="<%= admin_agent_path(agent) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
+                        <a href="<%= edit_admin_agent_path(agent) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
+                        <a href="<%= admin_agent_path(agent) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
 
-<%= link_to '添加新闻', new_admin_agent_path %>
+                      <!--   
+                        <%= link_to '预览', admin_agent_path(agent) %>
+                        <%= link_to 'Edit', edit_admin_agent_path(agent) %>
+                        <%= link_to 'Destroy', admin_agent_path(agent), method: :delete, data: { confirm: 'Are you sure?' } %> 
+                      -->
+                    </td>                   
+                  </tr>
+                <% end %>
+              
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <!-- /block -->
+</div>   
+
+
+
+<%#= link_to '添加新闻', new_admin_agent_path %>

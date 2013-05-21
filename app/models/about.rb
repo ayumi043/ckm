@@ -7,9 +7,9 @@ class About < ActiveRecord::Base
   def state_name    
     re = nil
     if self.state == 1
-      re = "enable"
+      re = "启用"
     elsif self.state == 0
-      re = "disable"    
+      re = "禁用"    
     end
     re 
   end    
