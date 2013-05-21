@@ -3,6 +3,10 @@ class CreateProvinces < ActiveRecord::Migration
     create_table :provinces do |t|
       t.string :cha
       t.string :name
+      t.integer :parent_id
+      t.integer :lft
+      t.integer :rgt
+      t.integer :depth # this is optional.
       t.timestamps
     end
   end

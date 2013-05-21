@@ -28,6 +28,8 @@ class Admin::AgentsController < ApplicationController
 
   def edit
     @agent = Agent.find(params[:id])
+    @province = Province.all.first
+
   end
 
    # POST /posts

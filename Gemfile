@@ -49,3 +49,5 @@ gem 'execjs'
 gem 'therubyracer'
 
 gem 'simple_form'
+
+gem 'awesome_nested_set'
