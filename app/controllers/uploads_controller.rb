@@ -1,6 +1,9 @@
 # encoding: utf-8
 
 class UploadsController < ApplicationController
+
+  layout false
+
   def index
     
   end

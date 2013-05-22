@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519150057) do
+ActiveRecord::Schema.define(:version => 20130522044555) do
 
   create_table "admin", :force => true do |t|
     t.string   "email",       :limit => 50,  :null => false
@@ -42,6 +42,12 @@ ActiveRecord::Schema.define(:version => 20130519150057) do
   end
 
   add_index "article", ["ty_id"], :name => "type"
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "contactmethod", :force => true do |t|
     t.integer "uid",                   :null => false
@@ -79,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20130519150057) do
     t.string   "picture",     :limit => 200
     t.text     "description", :limit => 16777215
     t.datetime "date",                            :null => false
+    t.integer  "category_id"
   end
 
   create_table "provinces", :force => true do |t|
@@ -86,6 +93,10 @@ ActiveRecord::Schema.define(:version => 20130519150057) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
   end
 
   create_table "systemtype", :force => true do |t|

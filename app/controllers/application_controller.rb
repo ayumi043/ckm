@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery :except => :upload
 
-
   def uploadFile(file)   
 
     if !file.original_filename.empty?
