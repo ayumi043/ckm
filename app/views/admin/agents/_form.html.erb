@@ -31,18 +31,16 @@
 
     <%#= f.association :province, as: :radio_buttons, :label => "" %>                
 
-    <br>  
-
     <%#= f.select :province_id, nested_set_options(Province, @province) {|i| "#{'-' * i.level} #{i.name}" } %>
 
     <%#= select_tag 'province_id', options_for_select(nested_set_options(Province) {|i| "#{'-' * i.level} #{i.name}" } ) %>
 
-    <select name="">
+    <!-- <select name="">
       <option value="">1</option>
       <option value="">2</option>
-    </select> 
+    </select>  -->
 
-    <%= f.collection_select :province_id, Province.all, :id, :name %>
+    <%= f.collection_select :province_id, Province.where("cha != '' "), :id, :name %>
 
     <br>  
 

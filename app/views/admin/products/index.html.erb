@@ -1,25 +1,58 @@
-<h1>所有产品</h1>
-
-<table>
-  <th>
-    <td>名称</td>
-    <td>缩略图</td>
-    <td>内容</td>
-    <td colspan="3">操作</td>
-  </th>
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.prodname %></td>
-    <td><%= image_tag(product.picture) %></td>
-    <td><%= raw product.description %></td>
-    <td><%= link_to 'Show', admin_product_path(product) %></td>
-    <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
-    <td><%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for(:nav)  do %>
+<li>
+  <a href="<%= admin_products_path %>">所有产品</a>
+  <span class="divider">/</span>
+</li>
 <% end %>
-</table>
-  
 
-<br />
+<div class="row-fluid">
 
-<%= link_to '新建首页设置', new_admin_product_path %>
+  <div>
+    <a href="<%= new_admin_product_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加产品</a>
+    <a href="<%= admin_categories_path %>" class="btn btn-info"><i class="icon-th-large icon-white"></i> 产品系列</a>
+  </div>
+
+  <!-- block -->
+  <div class="block">
+    <div class="navbar navbar-inner block-header">
+      <div class="muted pull-left">所有产品</div>
+      <div class="pull-right">
+        <span class="badge badge-info">1,462</span>
+      </div>
+    </div>
+    <div class="block-content collapse in">
+
+
+      <div class="row-fluid">
+        <% @products.in_groups_of(3) do |products| %>
+        <ul class="thumbnails">
+          <% @products.each do |product| %>
+            <li class="span4">
+              <div class="thumbnail">
+                <img style="width: 300px; height: 200px;" src="<%= product.picture %>">
+                <div class="caption">
+                  <h3><%= link_to product.prodname, admin_product_path(product) %></h3>
+                  <p>
+                    <%= raw product.description %>
+                  </p>
+                  <p>
+                    <a href="<%= edit_admin_product_path(product) %>
+                      " class="btn btn-primary"> <i class="icon-pencil icon-white"></i>
+                      编辑
+                    </a>
+                    <a href="<%= admin_product_path(product) %>
+                      " rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger"> <i class="icon-remove icon-white"></i>
+                      删除
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </li>
+            <% end %>
+        </ul>
+        <% end %>
+      </div>
+
+  </div>
+  <!-- /block --> 
+</div>

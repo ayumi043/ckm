@@ -43,7 +43,7 @@ class Admin::ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to admin_product_url(@product), notice: 'product was successfully created.' }
+        format.html { redirect_to admin_product_url(@product), notice: '产品添加成功!' }
       else
         format.html { render action: "new" }
       end
@@ -57,7 +57,7 @@ class Admin::ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
-        format.html { redirect_to admin_product_url(@product), notice: 'product was successfully updated.' }
+        format.html { redirect_to admin_product_url(@product), notice: '产品修改成功!' }
       else
         format.html { render action: "edit" }
       end

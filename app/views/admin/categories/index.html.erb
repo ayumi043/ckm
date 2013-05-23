@@ -1,22 +1,45 @@
-<h1>Listing categories</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= link_to 'Show', admin_category_path(category) %></td>
-    <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
-    <td><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_categories_path %>">产品系列</a>
+  </li> 
 <% end %>
-</table>
 
-<br />
+<div class="row-fluid">
 
-<%= link_to 'New Category', new_admin_category_path %>
+  <div>
+     <a href="<%= new_admin_category_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加系列</a>
+  </div>
+
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">产品系列</div>         
+      </div>
+      <div class="block-content collapse in">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>系列名称</th>
+                      <th width="160">操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                <% @categories.each do |category| %>
+                  <tr>
+                    <td><%= category.name %></td>
+                    <td>
+                        <a href="<%= edit_admin_category_path(category) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
+                        &nbsp;&nbsp;
+                        <a href="<%= admin_category_path(category) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
+
+                    </td>                   
+                  </tr>
+                <% end %>
+              
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <!-- /block -->
+</div>  

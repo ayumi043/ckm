@@ -1,3 +1,11 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_abouts_path %>">走进车快美</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @about.title %></li> 
+<% end %>
+
 <%= form_for [:admin, @about] do |f| %>
 
   <% if @about.errors.any? %>
@@ -21,14 +29,13 @@
     </span>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :状态 %><br />
     启用:<%= f.check_box :state %>
     <span style="color:#f60;"><%= "#{errors[:state].first}" if errors[:state] %></span>
-  </div>
+  </div> -->
 
   <div class="field">
-    <%= f.label :描述 %><br />
     <%= f.ueditor_text :content %>
     <span style="color:#f60;"><%= "#{errors[:content].first}" if errors[:content] %></span>
   </div>

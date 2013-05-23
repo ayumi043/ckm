@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
-  attr_accessible :prodname, :picture, :description
+  attr_accessible :prodname, :picture, :description, :category_id
+
+  belongs_to :category
 
   set_table_name "product"
 

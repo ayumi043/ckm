@@ -5,20 +5,24 @@
   <li class="active"><%= @about.title %></li>
 <% end %>
 
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>操作提示</h4>
+    <%= notice %>
+  </div>
+<% end %>
 
-<p>
-  <b>模块名称:</b>
-  <%= @about.title %>
-</p>
 
-<p>
+<h4><%= @about.title %></h4>
+
+
+<!-- <p>
   <b>状态:</b>
   <%= @about.state_name %>
-</p>
+</p> -->
 
 <p>
-  <b>详细内容:</b>
   <%= raw @about.content %>
 </p>
 

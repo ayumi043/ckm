@@ -1,3 +1,11 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_categories_path %>">产品系列</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @category.name %></li> 
+<% end %>
+
 <%= form_for [:admin, @category] do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
@@ -11,10 +19,10 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :名称 %>
     <%= f.text_field :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "确定" %>
   </div>
 <% end %>

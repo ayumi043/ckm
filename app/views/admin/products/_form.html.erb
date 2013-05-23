@@ -1,3 +1,11 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_products_path %>">所有产品</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @product.prodname %></li> 
+<% end %>
+
 <%= form_for [:admin, @product] do |f| %>
 
   <% if @product.errors.any? %>
@@ -16,23 +24,28 @@
   <% errors = @product.errors.messages %>
 
   <div class="field">
-    <%= f.label :产品名称 %><br />
+    <%= f.label :产品名称 %>
     <span><input type="text" name="product[prodname]" value="<%= @product.prodname %>" /></span>
     <span style="color:#f60;"><%= errors[:prodname].first if errors[:prodname] %></span>
   </div>
 
   <div class="field">
-    <%= f.label :产品图片 %><br />
+    <%= f.label :所属系列 %>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :产品图片 %>
     <%= f.file_field :picture %>
     <span style="color:#f60;"><%= "#{errors[:picture].first}" if errors[:picture] %></span>
   </div>
 
   <div class="field">
-    <%= f.label :描述 %><br />
+    <%= f.label :描述 %>
     <%= f.ueditor_text :description %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "确定" %>
   </div>
 <% end %>
