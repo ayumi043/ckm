@@ -50,7 +50,7 @@ class Admin::AgentsController < ApplicationController
 
     respond_to do |format|
       if @agent.update_attributes(params[:agent])
-        format.html { redirect_to admin_agents_url, notice: 'new was successfully updated.' }
+        format.html { redirect_to admin_agents_url, notice: '修改成功!' }
       else
         format.html { render action: "edit" }
       end

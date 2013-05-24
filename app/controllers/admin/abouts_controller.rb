@@ -27,7 +27,7 @@ class Admin::AboutsController < ApplicationController
 
     respond_to do |format|
       if @about.update_attributes(params[:about])
-        format.html { redirect_to admin_abouts_url, notice: 'about was successfully updated.' }
+        format.html { redirect_to admin_abouts_url, notice: '修改成功!' }
       else
         format.html { render action: "edit" }
       end

@@ -37,7 +37,7 @@ class Admin::ArticlesController < ApplicationController
     @article.ty_id = 23
     respond_to do |format|
       if @article.save
-        format.html { redirect_to admin_article_url(@article), notice: 'new was successfully created.' }
+        format.html { redirect_to admin_article_url(@article), notice: '新闻添加成功!' }
       else
         format.html { render action: "new" }
       end
@@ -49,7 +49,7 @@ class Admin::ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.update_attributes(params[:article])
-        format.html { redirect_to admin_articles_url, notice: 'new was successfully updated.' }
+        format.html { redirect_to admin_articles_url, notice: '新闻修改成功!' }
       else
         format.html { render action: "edit" }
       end
