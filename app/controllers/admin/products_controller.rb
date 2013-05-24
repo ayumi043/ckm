@@ -2,16 +2,14 @@ class Admin::ProductsController < ApplicationController
 
   layout "admin"
 
-  # GET /posts
   def index
     @products = Product.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
     end
   end
 
-  # GET /posts/1
   def show
     @product = Product.find(params[:id])
 
@@ -20,7 +18,6 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  # GET /posts/new
   def new
     @product = Product.new
 
@@ -29,12 +26,10 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  # GET /posts/1/edit
   def edit
     @product = Product.find(params[:id])
   end
 
-  # POST /posts
   def create
     @product = Product.new(params[:product])
     @product.date = Time.now
@@ -50,8 +45,6 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.json
   def update
     @product = Product.find(params[:id])
     tmp =  params[:product]
@@ -66,8 +59,6 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
