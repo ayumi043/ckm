@@ -54,9 +54,11 @@ class Admin::ProductsController < ApplicationController
   # PUT /posts/1.json
   def update
     @product = Product.find(params[:id])
-
+    tmp =  params[:product]
+    tmp[:picture] = uploadFile(params[:product]["picture"])  if params[:product]["picture"]
+   
     respond_to do |format|
-      if @product.update_attributes(params[:product])
+      if @product.update_attributes(tmp)
         format.html { redirect_to admin_product_url(@product), notice: '产品修改成功!' }
       else
         format.html { render action: "edit" }

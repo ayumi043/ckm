@@ -20,10 +20,11 @@ class ApplicationController < ActionController::Base
 
   def getFileName(filename)  
     if !filename.nil?  
-      require 'SecureRandom'  
+      # require 'SecureRandom'  
       # binding.pry
       # filename.sub(/.*./, SecureRandom.hex+'.') 
-      filename.sub(/(.*)\./.match(filename)[1], SecureRandom.hex)
+      # filename.sub(/(.*)\./.match(filename)[1], SecureRandom.hex)
+      filename.sub(/(.*)\./.match(filename)[1], Time.now.to_f.to_s.delete('.'))
     end  
   end
 

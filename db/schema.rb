@@ -85,7 +85,6 @@ ActiveRecord::Schema.define(:version => 20130522044555) do
     t.string   "picture",     :limit => 200
     t.text     "description", :limit => 16777215
     t.datetime "date",                            :null => false
-    t.integer  "category_id"
   end
 
   create_table "provinces", :force => true do |t|
@@ -93,10 +92,6 @@ ActiveRecord::Schema.define(:version => 20130522044555) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth"
   end
 
   create_table "systemtype", :force => true do |t|
