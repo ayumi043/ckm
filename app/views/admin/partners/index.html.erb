@@ -1,3 +1,10 @@
+<% content_for(:nav)  do %>
+<li>
+  <a href="<%= admin_partners_path %>">加盟商</a>
+  <span class="divider">/</span>
+</li>
+<% end %>
+
 <div class="row-fluid">
 
   <div>
@@ -6,12 +13,13 @@
   <!-- block -->
   <div class="block">
       <div class="navbar navbar-inner block-header">
-          <div class="muted pull-left">首页代理设置</div>         
+          <div class="muted pull-left">加盟商</div>         
       </div>
       <div class="block-content collapse in">
           <table class="table table-striped">
               <thead>
                   <tr>
+                      <th>缩略图</th>
                       <th>盟友名称</th>
                       <th>店名</th>
                       <th>面积</th>
@@ -25,6 +33,9 @@
 
                 <% @partners.each do |partner| %>
                   <tr>
+                    <td>
+                      <img style="width: 80px; height: 60px;" src="<%= partner.picture %>">
+                    </td>
                     <td><%= partner.name %></td>
                     <td><%= partner.dianming %></td>
                     <td><%= partner.mianji %></td>

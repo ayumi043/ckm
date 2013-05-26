@@ -31,6 +31,7 @@ class Admin::PartnersController < Admin::ApplicationController
    # POST /posts
   def create
     @partner = Partner.new(params[:partner])
+    @partner.picture = uploadFile(params[:partner]["picture"]) 
 
     respond_to do |format|
       if @partner.save
@@ -43,9 +44,11 @@ class Admin::PartnersController < Admin::ApplicationController
 
   def update
     @partner = Partner.find(params[:id])
+    tmp =  params[:partner]
+    tmp[:picture] = uploadFile(params[:partner]["picture"])  if params[:partner]["picture"]
 
     respond_to do |format|
-      if @partner.update_attributes(params[:partner])
+      if @partner.update_attributes(tmp)
         format.html { redirect_to admin_partners_url, notice: '修改成功!' }
       else
         format.html { render action: "edit" }

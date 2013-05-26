@@ -1,9 +1,15 @@
-<p id="notice"><%= notice %></p>
+<% if  notice %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>操作提示</h4>
+    <%= notice %>
+  </div>
+<% end %>
 
 <p>
   <b>Name:</b>
   <%= @category.name %>
 </p>
 
-<%= link_to 'Edit', edit_admin_category_path(@category) %> |
-<%= link_to 'Back', admin_categories_path %>
+<%= link_to '编辑', edit_admin_category_path(@category) %> |
+<%= link_to '返回', admin_categories_path %>
