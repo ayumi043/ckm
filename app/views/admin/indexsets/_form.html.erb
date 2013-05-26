@@ -2,14 +2,18 @@
 
   <% if @indexset.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">&times;</button>
+        <strong>错误!</strong> 
+        <span>发生了<%= pluralize(@indexset.errors.count, "") %>个错误！</span>
+        <ul>
+        <% @indexset.errors.messages.each do |msg| %>
+          <li><%= msg.last.first %></li>
+        <% end %>
+        </ul>
+      </div>
 
-      <ul>
-      <%# binding.pry %>
-      <% @indexset.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
     </div>
   <% end %>
 

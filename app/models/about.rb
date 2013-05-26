@@ -3,6 +3,7 @@ class About < ActiveRecord::Base
 
   set_table_name 'article'
 
+
   # Getter    
   def state_name    
     re = nil

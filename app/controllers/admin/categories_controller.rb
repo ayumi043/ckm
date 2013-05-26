@@ -1,5 +1,4 @@
-class Admin::CategoriesController < ApplicationController
-
+class Admin::CategoriesController < Admin::ApplicationController
 
   # layout false
   layout "admin"

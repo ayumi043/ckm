@@ -1,5 +1,4 @@
-class Admin::ArticlesController < ApplicationController
-
+class Admin::ArticlesController < Admin::ApplicationController
   layout "admin"
 
   def index

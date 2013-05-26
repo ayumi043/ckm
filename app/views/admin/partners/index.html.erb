@@ -1,0 +1,47 @@
+<div class="row-fluid">
+
+  <div>
+     <a href="<%= new_admin_partner_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加</a>
+  </div>
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">首页代理设置</div>         
+      </div>
+      <div class="block-content collapse in">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>盟友名称</th>
+                      <th>店名</th>
+                      <th>面积</th>
+                      <th>员工人数</th>
+                      <th>特色项目</th>
+                      <th width="180">地区</th>
+                      <th width="180">操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                <% @partners.each do |partner| %>
+                  <tr>
+                    <td><%= partner.name %></td>
+                    <td><%= partner.dianming %></td>
+                    <td><%= partner.mianji %></td>
+                    <td><%= partner.renshu %></td>
+                    <td><%= partner.teshe %></td>
+                    <td><%= "#{partner.region.parent.parent.region_name} #{partner.region.parent.region_name} #{partner.region.region_name}" %></td>
+                    <td>
+                        <a href="<%= admin_partner_path(partner) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
+                        <a href="<%= edit_admin_partner_path(partner) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
+                        <a href="<%= admin_partner_path(partner) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
+                    </td>                   
+                  </tr>
+                <% end %>
+              
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <!-- /block -->
+</div>   

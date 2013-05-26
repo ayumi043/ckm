@@ -1,5 +1,4 @@
-class Admin::IndexsetsController < ApplicationController
-
+class Admin::IndexsetsController < Admin::ApplicationController
   layout "admin"
 
   # GET /posts

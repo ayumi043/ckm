@@ -31,10 +31,7 @@
               <div class="thumbnail">
                 <img style="width: 300px; height: 200px;" src="<%= product.picture %>">
                 <div class="caption">
-                  <h3><%= link_to product.prodname, admin_product_path(product) %></h3>
-                  <p>
-                    <%= raw product.description %>
-                  </p>
+                  <h4><%= link_to product.prodname, admin_product_path(product) %></h4>
                   <p>
                     <a href="<%= edit_admin_product_path(product) %>
                       " class="btn btn-primary"> <i class="icon-pencil icon-white"></i>

@@ -1,14 +1,16 @@
 class Article < ActiveRecord::Base
   attr_accessible :title, :content, :ty_id, :state
 
+  validates :title, :presence => { :message => "新闻标题不能为空" }
+
   set_table_name 'article'
 
   def state_name    
     re = nil
     if self.state == 1
-      re = "enable"
+      re = "启用"
     elsif self.state == 0
-      re = "disable"    
+      re = "禁用"    
     end
     re 
   end    

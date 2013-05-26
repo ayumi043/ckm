@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522044555) do
+ActiveRecord::Schema.define(:version => 20130526162547) do
 
   create_table "admin", :force => true do |t|
     t.string   "email",       :limit => 50,  :null => false
@@ -80,11 +80,25 @@ ActiveRecord::Schema.define(:version => 20130522044555) do
 
   add_index "member", ["utype"], :name => "usertype"
 
+  create_table "partners", :force => true do |t|
+    t.string   "name"
+    t.string   "dianming"
+    t.string   "picture"
+    t.string   "mianji"
+    t.string   "renshu"
+    t.string   "teshe"
+    t.text     "description"
+    t.integer  "region_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "product", :force => true do |t|
     t.string   "prodname",    :limit => 100,      :null => false
     t.string   "picture",     :limit => 200
     t.text     "description", :limit => 16777215
     t.datetime "date",                            :null => false
+    t.integer  "category_id"
   end
 
   create_table "provinces", :force => true do |t|
@@ -92,7 +106,23 @@ ActiveRecord::Schema.define(:version => 20130522044555) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
   end
+
+  create_table "regions", :force => true do |t|
+    t.integer "parent_id"
+    t.string  "region_name", :limit => 120, :default => "",    :null => false
+    t.boolean "region_type",                :default => false, :null => false
+    t.integer "lft",                        :default => 0
+    t.integer "rgt",                        :default => 0
+    t.integer "depth"
+  end
+
+  add_index "regions", ["parent_id"], :name => "parent_id"
+  add_index "regions", ["region_type"], :name => "region_type"
 
   create_table "systemtype", :force => true do |t|
     t.string  "typename",    :limit => 20,  :null => false
@@ -111,6 +141,14 @@ ActiveRecord::Schema.define(:version => 20130522044555) do
   end
 
   add_index "upicture", ["uid"], :name => "uid"
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "hashed_password"
+    t.string   "salt"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "weblink", :force => true do |t|
     t.string "web_name", :limit => 20,  :null => false

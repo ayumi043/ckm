@@ -10,14 +10,18 @@
 
   <% if @about.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@about.errors.count, "error") %> prohibited this about from being saved:</h2>
+      
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">&times;</button>
+        <strong>错误!</strong> 
+        <span>发生了<%= pluralize(@about.errors.count, "") %>个错误！</span>
+        <ul>
+        <% @about.errors.messages.each do |msg| %>
+          <li><%= msg.last.first %></li>
+        <% end %>
+        </ul>
+      </div>
 
-      <ul>
-      <%# binding.pry %>
-      <% @about.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
     </div>
   <% end %>
 

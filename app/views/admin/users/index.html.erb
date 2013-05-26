@@ -1,0 +1,112 @@
+<% content_for(:nav)  do %>
+<li>
+  <a href="<%= admin_products_path %>">管理员列表</a>
+  <span class="divider">/</span>
+</li>
+<% end %>
+
+<div class="row-fluid">
+
+  <% if  notice %>
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <h4>操作提示</h4>
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <div>
+    <a href="<%= new_admin_user_path %>" role="button" class="btn btn-primary" data-toggle="modal">添加管理员</a>
+    
+  </div>
+
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">所有管理员</div>         
+      </div>
+      <div class="block-content collapse in">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>用户名</th>
+                      <th>上次登录</th>
+                      <th width="210">操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.username %></td>
+                    <td><%= user.updated_at.strftime('%F %R:%S')  %></td>
+                    <td>
+                        <a href="<%= edit_admin_user_path(user) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
+                        <a href="<%= admin_user_path(user) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
+                    </td>                   
+                  </tr>
+                <% end %>
+              
+              </tbody>
+          </table>
+      </div>
+
+  </div>
+  <!-- /block -->
+
+  <%# binding.pry %>
+
+  <% if params[:action]  == "edit" || params[:action]  == "update" %>
+    <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">编辑管理员</div>         
+      </div>
+      <div class="block-content collapse in">
+          <%= form_for [:admin, @user] do |f| %>
+
+            <% if @user.errors.any? %>
+              <div id="error_explanation">
+
+                <div class="alert alert-error">
+                  <button class="close" data-dismiss="alert">&times;</button>
+                  <strong>错误!</strong> 
+                  <span>发生了<%= pluralize(@user.errors.count, "") %>个错误！</span>
+                  <ul>
+                  <% @user.errors.messages.each do |msg| %>
+                    <li><%= msg.last.first %></li>
+                  <% end %>
+                  </ul>
+                </div>
+
+              </div>
+            <% end %>
+
+            <% errors = @user.errors.messages %>
+
+            <div class="field">
+              <%= f.label :用户名 %>
+              <span>
+                 <%= f.text_field :username, :value => @user.username, :autocomplete => :off %>
+              </span>
+              <span style="color:#f60;"><%= errors[:username].first if errors[:username] %></span>
+            </div>
+
+            <div class="field">
+              <%= f.label :密码 %>
+              <span>
+                <%= f.password_field :password, :autocomplete => :off %>
+              </span>
+              <span style="color:#f60;"><%= errors[:password].first if errors[:password] %></span>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "确定" %>
+            </div>
+          <% end %>
+      </div>
+
+    </div>
+  <% end %>
+
+
+</div>

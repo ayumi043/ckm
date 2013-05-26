@@ -1,4 +1,4 @@
-class Admin::AgentsController < ApplicationController
+class Admin::AgentsController < Admin::ApplicationController
 
   layout "admin"
 
@@ -28,8 +28,6 @@ class Admin::AgentsController < ApplicationController
 
   def edit
     @agent = Agent.find(params[:id])
-    @province = Province.all.first
-
   end
 
    # POST /posts

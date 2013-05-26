@@ -1,17 +1,29 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_agents_path %>">代理商</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @agent.name %></li> 
+<% end %>
+
 <%= simple_form_for [:admin, @agent] do |f| %>
 
   <fieldset>
    
     <% if @agent.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@agent.errors.count, "error") %> prohibited this about from being saved:</h2>
+        
+        <div class="alert alert-error">
+          <button class="close" data-dismiss="alert">&times;</button>
+          <strong>错误!</strong> 
+          <span>发生了<%= pluralize(@agent.errors.count, "") %>个错误！</span>
+          <ul>
+          <% @agent.errors.messages.each do |msg| %>
+            <li><%= msg.last.first %></li>
+          <% end %>
+          </ul>
+        </div>
 
-        <ul>
-        <%# binding.pry %>
-        <% @agent.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
       </div>
     <% end %>
 

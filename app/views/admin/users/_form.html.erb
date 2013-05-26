@@ -1,0 +1,42 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_users_path %>">管理员</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @user.username %></li> 
+<% end %>
+
+<%= form_for [:admin, @user] do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+     
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">&times;</button>
+        <strong>错误!</strong> 
+        <span>发生了<%= pluralize(@user.errors.count, "") %>个错误！</span>
+        <ul>
+        <% @user.errors.messages.each do |msg| %>
+          <li><%= msg.last.first %></li>
+        <% end %>
+        </ul>
+      </div>
+     
+    </div>
+  <% end %>
+
+  <% errors = @user.errors.messages %>
+
+  <div class="field">
+    <%= f.label :用户名 %>
+    <%= f.text_field :username, :disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :密码 %>
+    <%= f.text_field :password %>
+    <span style="color:#f60;"><%= errors[:password].first if errors[:password] %></span>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit "确定" %>
+  </div>
+<% end %>

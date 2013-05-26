@@ -1,5 +1,4 @@
-class Admin::ProductsController < ApplicationController
-
+class Admin::ProductsController < Admin::ApplicationController
   layout "admin"
 
   def index
@@ -20,7 +19,7 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
-
+    binding.pry
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -34,12 +33,12 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(params[:product])
     @product.date = Time.now
     @product.picture = uploadFile(params[:product]["picture"])    
-    binding.pry
 
     respond_to do |format|
       if @product.save
         format.html { redirect_to admin_product_url(@product), notice: '产品添加成功!' }
       else
+        binding.pry
         format.html { render action: "new" }
       end
     end

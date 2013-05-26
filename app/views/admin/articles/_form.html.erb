@@ -2,14 +2,18 @@
 
   <% if @article.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this about from being saved:</h2>
+      
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">&times;</button>
+        <strong>错误!</strong> 
+        <span>发生了<%= pluralize(@article.errors.count, "") %>个错误！</span>
+        <ul>
+        <% @article.errors.messages.each do |msg| %>
+          <li><%= msg.last.first %></li>
+        <% end %>
+        </ul>
+      </div>
 
-      <ul>
-      <%# binding.pry %>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
     </div>
   <% end %>
 
@@ -17,23 +21,23 @@
 
   <div class="field">
     <span>
-      <h3><%= f.text_field :title %></h3>
+      <%#= f.text_field :title %>
+      <input type="text" name="article[title]" value="<%= @article.title %>" />
     </span>
+    <span style="color:#f60;"><%= "#{errors[:title].first}" if errors[:title] %></span>
   </div>
 
   <div class="field">
-    <%= f.label :状态 %><br />
-    启用:<%= f.check_box :state %>
-    <span style="color:#f60;"><%= "#{errors[:state].first}" if errors[:state] %></span>
+    状态：<%= f.check_box :state %>启用
   </div>
 
   <div class="field">
-    <%= f.label :描述 %><br />
+    <%= f.label :描述 %>
     <%= f.ueditor_text :content %>
     <span style="color:#f60;"><%= "#{errors[:content].first}" if errors[:content] %></span>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "确 定" %>
   </div>
 <% end %>

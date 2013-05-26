@@ -1,0 +1,27 @@
+<% if  notice %>
+	<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>操作提示</h4>
+  	<%= notice %>
+	</div>
+<% end %>
+
+<p>
+  <b>名称:</b>
+  <%= @partner.name %>
+</p>
+
+<p>
+  <b>所属省份:</b>
+  <%= "#{@partner.region.parent.parent.region_name} #{@partner.region.parent.region_name} #{@partner.region.region_name}"  %>
+</p>
+
+
+<p>
+  <b>描述:</b>
+  <%= raw @partner.description %>
+</p>
+
+
+<%= link_to '编辑', edit_admin_partner_path(@partner) %> |
+<%= link_to '返回', admin_partners_path %>

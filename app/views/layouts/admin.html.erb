@@ -8,6 +8,7 @@
         <link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="/assets/styles.css" rel="stylesheet" media="screen">
         <%= stylesheet_link_tag    "admin", :media => "all" %>
+        <%= csrf_meta_tags %>
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -26,75 +27,48 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav pull-right">
                             <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> Vincent Gabriel <i class="caret"></i>
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-user"></i> <%= session[:username] %> <i class="caret"></i>
 
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a tabindex="-1" href="#">Profile</a>
+                                        <a tabindex="-1" href="<%= edit_admin_user_path(session[:user_id]) %>">修改密码</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a tabindex="-1" href="login.html">Logout</a>
+                                        <a tabindex="-1" href="<%= admin_sessions_logout_path %>" data-method="delete">退出</a>
                                     </li>
                                 </ul>
                             </li>
                         </ul>
                         <ul class="nav">
-                            <li class="active">
+                            <li <%= raw "class='active'" if params[:controller] == "admin/home" %> >
                                 <a href="#">Dashboard</a>
                             </li>
-                            <li class="dropdown">
+                           <!--  <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b>
 
                                 </a>
                                 <ul class="dropdown-menu" id="menu1">
                                     <li>
-                                        <a href="#">Tools <i class="icon-arrow-right"></i>
-
-                                        </a>
-                                        <ul class="dropdown-menu sub-menu">
-                                            <li>
-                                                <a href="#">Reports</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Logs</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Errors</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">SEO Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Other Link</a>
+                                        <a href="#">test</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="#">Other Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Other Link</a>
+                                        <a href="#">test</a>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Users <i class="caret"></i>
-
-                                </a>
-                                <ul class="dropdown-menu">
+                            </li> -->
+                            <li <%= raw "class='active'" if params[:controller] == "admin/users" %>>
+                                <a href="<%= admin_users_path %>">管理员账号</a>
+                                <!-- <ul class="dropdown-menu">
                                     <li>
                                         <a tabindex="-1" href="#">User List</a>
                                     </li>
                                     <li>
                                         <a tabindex="-1" href="#">Search</a>
                                     </li>
-                                    <li>
-                                        <a tabindex="-1" href="#">Permissions</a>
-                                    </li>
-                                </ul>
+                                </ul> -->
                             </li>
                         </ul>
                     </div>
@@ -106,23 +80,43 @@
             <div class="row-fluid">
                 <div class="span3" id="sidebar">
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-                        <li class="active">
-                            <a href="index.html"><i class="icon-chevron-right"></i> Dashboard</a>
+                        <li <%= current_class("home") %> >
+                            <a href="/admin"><i class="icon-chevron-right"></i> Dashboard</a>
                         </li>
-                        <li>
-                            <a href="/admin">首页设置</a>
+                        <li <%= current_class("abouts") %> >
+                            <a href="/admin/abouts">走进车快美</a>
                         </li>
-                        <li>
-                            <a href="/admin/abouts"><i class="icon-chevron-right"></i> 走进车快美</a>
+                        <li <%= current_class("indexsets") %> >
+                            <a href="/admin/indexsets">首页设置</a>
                         </li>
-                        <li>
+                        <li class="dropdown-submenu">
                             <a href="#"><i class="icon-chevron-right"></i> 加盟代理</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/admin/agents">地图设置</a>
+                                </li>
+                                <li>
+                                    <a href="/admin">添加盟友</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/partners">盟友列表</a>
+                                </li>
+                            </ul>
+
                         </li>
                         <li>
                             <a href="#"><i class="icon-chevron-right"></i> 我要开店</a>
                         </li>
-                        <li>
+                        <li class="dropdown-submenu">
                             <a href="/admin/products"><i class="icon-chevron-right"></i> 产品与项目</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/admin/products/new">添加产品</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/categories">产品系列</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">车快美学苑</a>
@@ -131,16 +125,7 @@
                             <a href="#"> 下载中心</a>
                         </li>
                         <li>
-                            <a href="#"><span class="badge badge-info pull-right">27</span> 新闻资讯</a>
-                        </li>
-                        <li>
-                            <a href="#"> 联系我们</a>
-                        </li>
-                        <li>
-                            <a href="#"> 加盟代理商</a>
-                        </li>
-                        <li>
-                            <a href="#">加盟代理商添加</a>
+                            <a href="/admin/articles"><span class="badge badge-info pull-right"><%= count_news %></span> 新闻资讯</a>
                         </li>
                     </ul>
                 </div>

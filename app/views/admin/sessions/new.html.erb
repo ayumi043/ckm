@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>管理员登录</title>
+        <!-- Bootstrap -->
+        <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="/assets/styles.css" rel="stylesheet" media="screen">
+        <%= stylesheet_link_tag    "admin", :media => "all" %>
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body>
+
+        <div class="container" style="width:600px;">
+            <div class="row-fluid">
+                
+                <%#= flash[:notice] %>
+                <% if  notice %>
+                  <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <h4>操作提示</h4>
+                    <%= notice %>
+                  </div>
+                <% end %>
+
+                <!--
+                <%= form_tag admin_sessions_path do -%>
+                  <label for="login">用户名</label>
+                  <%= text_field_tag :login, params[:login] %>
+                  <label for="password">密码</label>
+                  <%= password_field_tag :password, params[:password] %>
+                  
+                  <%= submit_tag "登录"%>
+                <% end %>
+                -->
+
+                <%#= binding.pry %>
+
+                <form class="form-horizontal" method="post" action="<%= admin_sessions_path %>">
+                  <div class="control-group">
+                    <label class="control-label" for="inputEmail">用户名</label>
+                    <div class="controls">
+                      <input type="text" name="username" value="<%= params[:username] %>" id="inputEmail" placeholder="用户名">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <label class="control-label" for="inputPassword">密码</label>
+                    <div class="controls">
+                      <input type="password" value="<%= params[:password] %>" name="password" id="inputPassword" placeholder="密码">
+                    </div>
+                  </div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button type="submit" class="btn btn-primary">登 录</button>
+                    </div>
+                  </div>
+                </form>
+
+
+            </div>
+            <hr>
+            <footer class="text-center">
+                <p>&copy; 厦门车快美汽车服务有限公司</p>
+            </footer>
+        </div>
+        <!--/.fluid-container-->
+
+        <%= javascript_include_tag "application" %>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    </body>
+
+</html>
