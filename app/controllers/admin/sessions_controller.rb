@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Admin::SessionsController < ApplicationController
 
   # layout "admin", :except => [:new, :create]

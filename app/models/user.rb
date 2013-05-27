@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class User < ActiveRecord::Base
   attr_accessible :hashed_password, :username, :salt, :password, :updated_at
 

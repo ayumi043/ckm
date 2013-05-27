@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Article < ActiveRecord::Base
   attr_accessible :title, :content, :ty_id, :state
 
