@@ -24,7 +24,6 @@ class Admin::SessionsController < ApplicationController
         # redirect_to posts_path
         format.html { redirect_to "/admin", notice: "欢迎您， #{@user.username}" }
       else
-        binding.pry
         flash[:notice] = "登录失败，用户名，或密码错误！"
         # redirect_to new_admin_session_path
         format.html { render action: "new" }
