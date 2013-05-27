@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require ueditor_config
 //= require_tree ./admin/
-
-
+//= require_self
