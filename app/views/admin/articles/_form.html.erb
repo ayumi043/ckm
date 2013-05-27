@@ -1,3 +1,12 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_articles_path %>">新闻资讯</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @article.title %></li> 
+<% end %>
+
+
 <%= form_for [:admin, @article] do |f| %>
 
   <% if @article.errors.any? %>
@@ -28,11 +37,11 @@
   </div>
 
   <div class="field">
-    状态：<%= f.check_box :state %>启用
+    状态：<%= f.check_box :state, :checked => true %>启用
   </div>
 
   <div class="field">
-    <%= f.label :描述 %>
+    <%= f.label :新闻内容 %>
     <%= f.ueditor_text :content %>
     <span style="color:#f60;"><%= "#{errors[:content].first}" if errors[:content] %></span>
   </div>

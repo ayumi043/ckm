@@ -6,7 +6,7 @@
         <!-- Bootstrap -->
         <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="/assets/styles.css" rel="stylesheet" media="screen">
+        <link href="/bootstrap/styles.css" rel="stylesheet" media="screen">
         <%= stylesheet_link_tag    "admin", :media => "all" %>
         <%= csrf_meta_tags %>
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -89,14 +89,15 @@
                         <li <%= current_class("indexsets") %> >
                             <a href="/admin/indexsets">首页设置</a>
                         </li>
-                        <li class="dropdown-submenu">
+                        <li 
+        class="dropdown-submenu<% if controller_name == "partners" || controller_name == "agents" then %> active<% end %>">
                             <a href="/admin/partners"><i class="icon-chevron-right"></i> 加盟代理</a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/admin/agents">地图设置</a>
                                 </li>
                                 <li>
-                                    <a href="/admin">添加盟友</a>
+                                    <a href="/admin/partners/new">添加盟友</a>
                                 </li>
                                 <li>
                                     <a href="/admin/partners">盟友列表</a>
@@ -107,7 +108,8 @@
                         <li>
                             <a href="#"><i class="icon-chevron-right"></i> 我要开店</a>
                         </li>
-                        <li class="dropdown-submenu">
+                        <li 
+        class="dropdown-submenu<% if controller_name == "categories" || controller_name == "products" then %> active<% end %>">
                             <a href="/admin/products"><i class="icon-chevron-right"></i> 产品与项目</a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -119,13 +121,13 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="/admin/articles"><span class="badge badge-info pull-right"><%= count_news %></span> 新闻资讯</a>
+                        </li>
+                        <li>
                             <a href="#">车快美学苑</a>
                         </li>
                         <li>
                             <a href="#"> 下载中心</a>
-                        </li>
-                        <li>
-                            <a href="/admin/articles"><span class="badge badge-info pull-right"><%= count_news %></span> 新闻资讯</a>
                         </li>
                     </ul>
                 </div>
@@ -158,7 +160,7 @@
             </footer>
         </div>
         <!--/.fluid-container-->
-
+         <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
         <%= javascript_include_tag "application" %>
         <script src="/bootstrap/js/bootstrap.min.js"></script>
 

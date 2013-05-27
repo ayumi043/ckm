@@ -8,8 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ * require_tree .
+ *= require home
  *= require_self
- *= require_tree .
  */
 
 /*reset*/
@@ -29,4 +30,4 @@ sup, sub {font-size: 100%; vertical-align: baseline; }
 :link, :visited, ins {text-decoration: none; }
 code, kbd, samp, tt, input, button, textarea, select {font-size: 100%; }
 /*global*/
-body {font: 12px/1.5 'tahoma, arial, 宋体'; color: #414141; background-color: #fff;margin-top:-2fpx !important;}
+body {font: 12px/1.5 'tahoma, arial, 宋体'; color: #414141; background-color: #fff;margin-top:-2px !important;}

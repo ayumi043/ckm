@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Admin::ProductsController < Admin::ApplicationController
   layout "admin"
 
@@ -19,7 +21,7 @@ class Admin::ProductsController < Admin::ApplicationController
 
   def new
     @product = Product.new
-    binding.pry
+    # binding.pry
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -38,7 +40,7 @@ class Admin::ProductsController < Admin::ApplicationController
       if @product.save
         format.html { redirect_to admin_product_url(@product), notice: '产品添加成功!' }
       else
-        binding.pry
+        # binding.pry
         format.html { render action: "new" }
       end
     end

@@ -1,7 +1,8 @@
+# encoding: utf-8
+
 class Admin::IndexsetsController < Admin::ApplicationController
   layout "admin"
 
-  # GET /posts
   def index
     @indexsets = Indexset.all
 
@@ -10,8 +11,6 @@ class Admin::IndexsetsController < Admin::ApplicationController
     end
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
   def show
     @indexset = Indexset.find(params[:id])
 
@@ -20,8 +19,6 @@ class Admin::IndexsetsController < Admin::ApplicationController
     end
   end
 
-  # GET /posts/new
-  # GET /posts/new.json
   def new
     @indexset = Indexset.new
 
@@ -30,18 +27,15 @@ class Admin::IndexsetsController < Admin::ApplicationController
     end
   end
 
-  # GET /posts/1/edit
   def edit
     @indexset = Indexset.find(params[:id])
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @indexset = Indexset.new(params[:indexset])
     @indexset.date = Time.now
     @indexset.picture = uploadFile(params[:indexset]["picture"])    
-    binding.pry
+    # binding.pry
 
     respond_to do |format|
       if @indexset.save
@@ -52,8 +46,6 @@ class Admin::IndexsetsController < Admin::ApplicationController
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.json
   def update
     @indexset = Indexset.find(params[:id])
 
@@ -66,8 +58,6 @@ class Admin::IndexsetsController < Admin::ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @indexset = Indexset.find(params[:id])
     @indexset.destroy

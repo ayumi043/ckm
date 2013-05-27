@@ -29,7 +29,7 @@ development:
   encoding: utf8
   # host: localhost 
   username: root
-  # password: "LIN7308217" #aliyun
+  password: "LIN7308217" #aliyun
   password: ""  # mac
   # password: "r"  # unix
   database: ckm_db
@@ -43,6 +43,8 @@ production:
   # host: localhost 
   username: root
   password: "LIN7308217"
+  # password: "" # mac
+  # password: "r"  # unix
   database: ckm_db
   host: 127.0.0.1
   port: 3306

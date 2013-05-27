@@ -17,11 +17,10 @@
     <div class="navbar navbar-inner block-header">
       <div class="muted pull-left">所有产品</div>
       <div class="pull-right">
-        <span class="badge badge-info">1,462</span>
+        <span class="badge badge-info"><%= @products.count %></span>
       </div>
     </div>
     <div class="block-content collapse in">
-
 
       <div class="row-fluid">
         <% @products.in_groups_of(3) do |products| %>
@@ -49,6 +48,8 @@
         </ul>
         <% end %>
       </div>
+
+    </div>
 
   </div>
   <!-- /block --> 
