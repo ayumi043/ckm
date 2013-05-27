@@ -20,7 +20,7 @@
 
 
 
-// require_tree ./admin/
+//= require_tree ./admin/
 
 
 
