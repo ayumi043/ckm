@@ -12,17 +12,7 @@
 //
 //  require jquery
 //= require jquery_ujs
-//= require ./ueditor_config
-
-// require jquery.vector-map
-// reuqire china-zh
-
-
-
-
+//= require ueditor_config
 //= require_tree ./admin/
 
 
-
-
-// require_tree .
