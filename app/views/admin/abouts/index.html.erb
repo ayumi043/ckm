@@ -17,7 +17,6 @@
               <thead>
                   <tr>
                       <th width="110">名称</th>
-                      <th>内容</th>
                       <th width="120">状态</th>
                       <th width="120">操作</th>
                   </tr>
@@ -27,7 +26,6 @@
                 <% @abouts.each do |about| %>
                   <tr>
                     <td><%= about.title %></td>
-                    <td><%= raw about.content %></td>
                     <td><%= about.state_name %></td>
                     <td>
                         <a href="<%= admin_about_path(about) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
