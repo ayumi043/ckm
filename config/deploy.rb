@@ -16,7 +16,7 @@ set :deploy_to, "/home/lzx/ckm"  #部署的地址
 set :scm, :git
 set :scm_verbose, true
 set :deploy_via, :remote_cache
-set :rails_env, 'product'
+set :rails_env, 'production'
 set :keep_releases, 2
  
 server "121.199.5.92", :app, :web, :db, :primary => true

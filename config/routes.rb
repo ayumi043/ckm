@@ -6,7 +6,9 @@ Ckm::Application.routes.draw do
 
   mount UeditorRails::Engine => '/ueditor'
 
-  # Sample resource route within a namespace:
+
+  resources :partners
+
   namespace :admin do
 
     get 'regions/(:id)' => 'partners#get_regions'

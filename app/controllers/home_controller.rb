@@ -7,6 +7,8 @@ class HomeController < ApplicationController
         :desc => i.agents.map{|i| "#{i.name}<br>#{i.description}<br>" }.join("")
       }  
     }
+
+    @partners = Partner.first(5)
   end
 
 end

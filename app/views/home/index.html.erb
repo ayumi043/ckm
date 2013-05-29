@@ -124,22 +124,12 @@
         </div>
         <div id="my" class="clearfix">
            
+            <% @partners.each do |partner| %>
             <div class="meng">
-                <img src="/assets/1.png" />
-                <div><span class="dm">店名：</span><a href="#">厦门湖里区服务中心务中心</a></div>
+                <img src="<%= partner.picture %>" />
+                <div><span class="dm">店名：</span><a href="<%= partner_path(partner) %>"><%= partner.dianming %></a></div>
             </div>
-            <div class="meng">
-                <img src="/assets/1.png" />
-                <div><span class="dm">店名：</span><a href="#">厦门湖里区服务中心</a></div>
-            </div>
-             <div class="meng">
-                <img src="/assets/1.png" />
-                <div><span class="dm">店名：</span><a href="#">厦门湖里区服务中心</a></div>
-            </div>
-            <div class="meng">
-                <img src="/assets/1.png" />
-                <div><span class="dm">店名：</span><a href="#">厦门湖里区服务中心</a></div>
-            </div>
+           <% end %>
 
         </div>
     </div>
