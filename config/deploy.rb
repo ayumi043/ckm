@@ -16,7 +16,7 @@ set :deploy_to, "/home/lzx/ckm"  #部署的地址
 set :scm, :git
 set :scm_verbose, true
 set :deploy_via, :remote_cache
-set :rails_env, 'staging'
+set :rails_env, 'product'
 set :keep_releases, 2
  
 server "121.199.5.92", :app, :web, :db, :primary => true
@@ -28,7 +28,7 @@ namespace :deploy do
 
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "#{sudo} service nginx restart"
+    run "sudo /etc/init.d/nginx restart"
   end
 
   desc "reload the database with seed data"
