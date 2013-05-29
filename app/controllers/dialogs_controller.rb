@@ -5,5 +5,9 @@ class DialogsController < ApplicationController
   def image
     
   end
+
+  def attachment
+    
+  end
   
 end
