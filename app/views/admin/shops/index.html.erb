@@ -1,0 +1,58 @@
+<% content_for(:nav)  do %>
+<li>
+  <a href="<%= admin_partners_path %>">加盟商</a>
+  <span class="divider">/</span>
+</li>
+<% end %>
+
+<div class="row-fluid">
+
+  <div>
+     <a href="<%= new_admin_shop_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加</a>
+  </div>
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">加盟商</div>         
+      </div>
+      <div class="block-content collapse in">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>缩略图</th>
+                      <th>店名称</th>
+                      <th>店名</th>
+                      <th>面积</th>
+                      <th>员工人数</th>
+                      <th>特色项目</th>
+                      <th width="180">地区</th>
+                      <th width="180">操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                <% @shops.each do |shop| %>
+                  <tr>
+                    <td>
+                      <img style="width: 80px; height: 60px;" src="<%= shop.picture %>">
+                    </td>
+                    <td><%= shop.name %></td>
+                    <td><%= shop.dianming %></td>
+                    <td><%= shop.mianji %></td>
+                    <td><%= shop.renshu %></td>
+                    <td><%= shop.teshe %></td>
+                    <td><%= "#{shop.region.parent.parent.region_name} #{shop.region.parent.region_name} #{shop.region.region_name}" %></td>
+                    <td>
+                        <a href="<%= admin_shop_path(shop) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
+                        <a href="<%= edit_admin_shop_path(shop) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
+                        <a href="<%= admin_shop_path(shop) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
+                    </td>                   
+                  </tr>
+                <% end %>
+              
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <!-- /block -->
+</div>   

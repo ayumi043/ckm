@@ -1,0 +1,98 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_shops_path %>">我要开店</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @shop.name %></li> 
+<% end %>
+
+<%= simple_form_for [:admin, @shop] do |f| %>
+
+  <fieldset>
+   
+    <% if @shop.errors.any? %>
+      <div id="error_explanation">
+        
+        <div class="alert alert-error">
+          <button class="close" data-dismiss="alert">&times;</button>
+          <strong>错误!</strong> 
+          <span>发生了<%= pluralize(@shop.errors.count, "") %>个错误！</span>
+          <ul>
+          <% @shop.errors.messages.each do |msg| %>
+            <li><%= msg.last.first %></li>
+          <% end %>
+          </ul>
+        </div>
+
+      </div>
+    <% end %>
+
+    <% errors = @shop.errors.messages %>
+
+
+    <%= f.label :名称 %>    
+    <%= f.text_field :name %>
+
+    <%= f.label :店名 %>    
+    <%= f.text_field :dianming %>
+
+    <%= f.label :图片 %>
+    <%= f.file_field :picture %>
+
+    <%= f.label :面积 %>    
+    <%= f.text_field :mianji %>
+
+    <%= f.label :员工人数 %>    
+    <%= f.text_field :renshu %>
+
+    <%= f.label :特色项目 %>    
+    <%= f.text_field :teshe %>
+    
+    <%= f.label :所属地区 %>
+  
+    <!-- <select name="">
+      <option value="">1</option>
+      <option value="">2</option>
+    </select>  -->
+
+    <%#= f.collection_select :region_id, Region.where(:parent_id => 0), :id, :region_name %>
+
+    <% if f.object.nil? || f.object.new_record? %>
+      
+      <%= select_tag "sheng", 
+        options_from_collection_for_select(Region.where(:parent_id => 0), "id", "region_name")%>
+      <select id="shi">
+      </select>
+      <select id="xian" name="shop[region_id]">
+      </select>
+
+    <% else%>
+
+      <select id="sheng">
+        <% Region.where(:parent_id => 0).each do |region| %>
+          <option <% if region.id == @shop.region.parent.parent.id %>selected<% end %>  value="<%= region.id %>"><%= region.region_name %></option>
+        <% end %>      
+      </select>
+      <select id="shi">
+        <% @shop.region.parent.parent.children.each do |region| %>
+          <option <% if region.id == @shop.region.parent.id %>selected<% end %>  value="<%= region.id %>"><%= region.region_name %></option>
+        <% end %>      
+      </select>
+      <select id="xian" name="shop[region_id]">
+        <% @shop.region.parent.children.each do |region| %>
+          <option <% if region.id == @shop.region.id %>selected<% end %>  value="<%= region.id %>"><%= region.region_name %></option>
+        <% end %>
+      </select>
+
+    <% end %> 
+    
+    <br>  
+
+    <%= f.label :描述 %>
+    <%= f.ueditor_text :description %>
+      <span style="color:#f60;"><%= "#{errors[:description].first}" if errors[:description] %></span>
+
+    <%= f.submit '确定' %>
+
+  </fieldset>
+<% end %>

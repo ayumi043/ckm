@@ -1,0 +1,48 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_teams_path %>">合作团队</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @team.name %></li> 
+<% end %>
+
+<%= simple_form_for [:admin, @team] do |f| %>
+
+  <fieldset>
+   
+    <% if @team.errors.any? %>
+      <div id="error_explanation">
+        
+        <div class="alert alert-error">
+          <button class="close" data-dismiss="alert">&times;</button>
+          <strong>错误!</strong> 
+          <span>发生了<%= pluralize(@team.errors.count, "") %>个错误！</span>
+          <ul>
+          <% @team.errors.messages.each do |msg| %>
+            <li><%= msg.last.first %></li>
+          <% end %>
+          </ul>
+        </div>
+
+      </div>
+    <% end %>
+
+    <% errors = @team.errors.messages %>
+
+
+    <%= f.label :团队名称 %>    
+    <%= f.text_field :name %>
+
+    <%= f.label :团队照片 %>
+    <%= f.file_field :picture %>
+
+    <br>   <br> 
+
+    <%= f.label :描述 %>
+    <%= f.ueditor_text :description %>
+      <span style="color:#f60;"><%= "#{errors[:description].first}" if errors[:description] %></span>
+
+    <%= f.submit '确定' %>
+
+  </fieldset>
+<% end %>

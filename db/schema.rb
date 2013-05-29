@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526162547) do
+ActiveRecord::Schema.define(:version => 20130529153008) do
 
   create_table "admin", :force => true do |t|
     t.string   "email",       :limit => 50,  :null => false
@@ -124,6 +124,19 @@ ActiveRecord::Schema.define(:version => 20130526162547) do
   add_index "regions", ["parent_id"], :name => "parent_id"
   add_index "regions", ["region_type"], :name => "region_type"
 
+  create_table "shops", :force => true do |t|
+    t.string   "name"
+    t.string   "dianming"
+    t.string   "picture"
+    t.string   "mianji"
+    t.string   "renshu"
+    t.string   "teshe"
+    t.text     "description"
+    t.integer  "region_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "systemtype", :force => true do |t|
     t.string  "typename",    :limit => 20,  :null => false
     t.integer "fatherid"
@@ -132,6 +145,14 @@ ActiveRecord::Schema.define(:version => 20130526162547) do
   end
 
   add_index "systemtype", ["fatherid"], :name => "fid"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.string   "picture"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "upicture", :force => true do |t|
     t.integer "uid",                        :null => false

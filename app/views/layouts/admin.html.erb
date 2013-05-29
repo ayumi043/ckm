@@ -105,8 +105,29 @@
                             </ul>
 
                         </li>
-                        <li>
-                            <a href="#"><i class="icon-chevron-right"></i> 我要开店</a>
+                        <li
+        class="dropdown-submenu<% if controller_name == "shops" then %> active<% end %>">
+                            <a href="/admin/shops"><i class="icon-chevron-right"></i> 我要开店</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/admin/partners/new">添加店</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/partners">店家列表</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li
+        class="dropdown-submenu<% if controller_name == "teams" then %> active<% end %>">
+                            <a href="/admin/teams"><i class="icon-chevron-right"></i> 合作团队</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/admin/teams/new">添加团队</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/teams">团队列表</a>
+                                </li>
+                            </ul>
                         </li>
                         <li 
         class="dropdown-submenu<% if controller_name == "categories" || controller_name == "products" then %> active<% end %>">
@@ -120,7 +141,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        <li <%= current_class("articles") %>>
                             <a href="/admin/articles"><span class="badge badge-info pull-right"><%= count_news %></span> 新闻资讯</a>
                         </li>
                         <li>

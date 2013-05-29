@@ -13,6 +13,10 @@ Ckm::Application.routes.draw do
 
     get 'regions/(:id)' => 'partners#get_regions'
 
+   
+    resources :teams
+    resources :shops
+
     resources :partners
 
     resources :users
