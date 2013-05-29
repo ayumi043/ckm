@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Shop < ActiveRecord::Base
   attr_accessible :name, :dianming, :picture, :description, :region_id, :mianji, :teshe, :renshu
   belongs_to :region

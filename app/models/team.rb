@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Team < ActiveRecord::Base
   attr_accessible :name, :dianming, :picture, :description, :region_id, :mianji, :teshe, :renshu
 
