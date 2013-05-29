@@ -18,7 +18,6 @@ $ ->
         $("#shi").html(str)
     )
 
-
   $("#shi").change ->  
     $.ajax(
       url: '/admin/regions/' + $(this).find("option:selected").val(),

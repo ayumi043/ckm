@@ -21,6 +21,8 @@
 capybara-*.html
 .rspec
 .rvmrc
+*.swp
+*.swo
 /.bundle
 /vendor/bundle
 /log/*
