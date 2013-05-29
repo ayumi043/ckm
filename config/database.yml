@@ -50,5 +50,14 @@ production:
   port: 3306
 
 staging:
-  production
+  adapter: mysql2
+  encoding: utf8
+  # host: localhost 
+  username: root
+  password: "LIN7308217"
+  # password: "" # mac
+  # password: "r"  # unix
+  database: ckm_db
+  host: 127.0.0.1
+  port: 3306
 
