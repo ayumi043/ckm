@@ -126,7 +126,7 @@
            
             <% @partners.each do |partner| %>
             <div class="meng">
-                <img src="<%= partner.picture %>" />
+                <a href="<%= partner_path(partner) %>"><img src="<%= partner.picture %>" /></a>
                 <div><span class="dm">店名：</span><a href="<%= partner_path(partner) %>"><%= partner.dianming %></a></div>
             </div>
            <% end %>
