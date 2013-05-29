@@ -26,14 +26,14 @@ set :use_sudo, false
 
 namespace :deploy do
 
-  after "deploy:update_code", :test1
-  task :test1 do
-      run "echo 1"
+  desc "Restarting mod_rails with restart.txt"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{sudo} service nginx restart"
   end
 
-  after "deploy:update_code", :test2
-  task :test2 do
-      run "echo 2"
+  desc "reload the database with seed data"
+  task :seed do
+    run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
   end
   
 end
