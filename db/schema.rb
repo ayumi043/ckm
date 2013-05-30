@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529153008) do
+ActiveRecord::Schema.define(:version => 20130530000010) do
 
   create_table "admin", :force => true do |t|
     t.string   "email",       :limit => 50,  :null => false
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(:version => 20130529153008) do
   end
 
   add_index "contactmethod", ["uid"], :name => "userid"
+
+  create_table "downloads", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "indexset", :force => true do |t|
     t.string   "module",  :limit => 20,  :null => false
