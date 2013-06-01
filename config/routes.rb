@@ -14,14 +14,11 @@ Ckm::Application.routes.draw do
     get 'showpartners/(:id)' => 'agents#get_partners'
     get 'regions/(:id)' => 'partners#get_regions'
 
-   
+    resources :downloads
     resources :teams
     resources :shops
-
     resources :partners
-
     resources :users
-
     resources :sessions
     get 'sessions/logout' => 'sessions#destroy'
 
@@ -32,9 +29,7 @@ Ckm::Application.routes.draw do
     # (app/controllers/admin/products_controller.rb)
     resources :products
     resources :categories
-
     resources :indexsets
-
     resources :articles
     resources :abouts
     resources :agents

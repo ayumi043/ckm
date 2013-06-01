@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20130531162121) do
 
   add_index "contactmethod", ["uid"], :name => "userid"
 
+  create_table "downloads", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "indexset", :force => true do |t|
     t.string   "module",  :limit => 20,  :null => false
     t.string   "title",   :limit => 50

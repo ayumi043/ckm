@@ -8,19 +8,14 @@
 
 <p>
   <b>新闻标题:</b>
-  <%= @article.title %>
-</p>
-
-<p>
-  <b>状态:</b>
-  <%= @article.state_name %>
+  <%= @download.title %>
 </p>
 
 <p>
   <b>新闻内容:</b>
-  <%= raw @article.content %>
+  <%= raw @download.content %>
 </p>
 
 
-<%= link_to '编辑', edit_admin_article_path(@article) %> |
-<%= link_to '返回', admin_articles_path %>
+<%= link_to '编辑', edit_admin_download_path(@download) %> |
+<%= link_to '返回', admin_downloads_path %>
