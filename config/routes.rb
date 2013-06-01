@@ -11,6 +11,7 @@ Ckm::Application.routes.draw do
 
   namespace :admin do
 
+    get 'showpartners/(:id)' => 'agents#get_partners'
     get 'regions/(:id)' => 'partners#get_regions'
 
    

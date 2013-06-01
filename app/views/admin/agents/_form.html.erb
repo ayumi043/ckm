@@ -29,13 +29,50 @@
 
     <% errors = @agent.errors.messages %>
 
+    <% if f.object.nil? || f.object.new_record? %>
 
+      <%= f.label :所属省份 %>
+      <select id="sh" name="region_id">
+        <option value="">
+          请选择...
+        </option>
+        <% Region.where(:parent == nil).each do |province| %>
+        <option value="<%= province.id %>">
+          <%= province.region_name %>
+        </option>
+        <% end %>      
+      </select>
+      <br> 
 
+      <%= f.label :加盟商名称 %>    
+      <%#= f.text_field :name %>
+      <ul id="agentname">
 
-    <%= f.label :名称 %>    
-    <%= f.text_field :name %>
-    
-    <%= f.label :所属省份 %>
+      </ul>
+
+    <% else %>  
+      <%= f.label :所属省份 %>
+      <select id="sh" name="region_id">
+        <% Region.where(:parent == nil).each do |region| %>
+          <option <% if region.id == @agent.region_id %>selected<% end %> value="<%= region.id %>">
+            <%= region.region_name %>
+          </option>
+        <% end %>      
+      </select>
+      <br> 
+
+      <%= f.label :加盟商名称 %>    
+      <%#= f.text_field :name %>
+      <ul id="agentname">
+        <% @partners.each do |partner| %>
+        <li>
+          <input type="radio" <%= "checked" if partner.id == @agent.partner_id %> value="<%= partner.id %>" name="partner_id" />
+          <%= partner.name %>
+        </li>
+        <% end %>
+      </ul>
+    <% end %>
+   
     <%#= f.collection_select :province_id, Province.all, :id, :name %>
 
     <%#= f.input :province_ids, :as => :radio_buttons, :collection => Province.all, 
@@ -52,13 +89,8 @@
       <option value="">2</option>
     </select>  -->
 
-    <%= f.collection_select :province_id, Province.where("cha != '' "), :id, :name %>
-
-    <br>  
-
-    <%= f.label :描述 %>
-    <%= f.ueditor_text :description %>
-      <span style="color:#f60;"><%= "#{errors[:description].first}" if errors[:description] %></span>
+    <%#= f.label :描述 %>
+    <%#= f.ueditor_text :description %>
 
     <%= f.submit '确定' %>
 

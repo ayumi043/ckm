@@ -60,7 +60,7 @@
     <% if f.object.nil? || f.object.new_record? %>
       
       <%= select_tag "sheng", 
-        options_from_collection_for_select(Region.where(:parent_id => 0), "id", "region_name")%>
+        options_from_collection_for_select(Region.where(:parent_id => nil), "id", "region_name")%>
       <select id="shi">
       </select>
       <select id="xian" name="partner[region_id]">
@@ -69,7 +69,7 @@
     <% else%>
 
       <select id="sheng">
-        <% Region.where(:parent_id => 0).each do |region| %>
+        <% Region.where(:parent_id => nil).each do |region| %>
           <option <% if region.id == @partner.region.parent.parent.id %>selected<% end %>  value="<%= region.id %>"><%= region.region_name %></option>
         <% end %>      
       </select>

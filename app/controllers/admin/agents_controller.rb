@@ -30,11 +30,15 @@ class Admin::AgentsController < Admin::ApplicationController
 
   def edit
     @agent = Agent.find(params[:id])
+    @partners = Partner.where(
+          :region_id => Region.find(@agent.region_id).leaves.map {|i| i.id }
+    ) 
   end
 
    # POST /posts
   def create
-    @agent = Agent.new(params[:agent])
+    # binding.pry
+    @agent = Agent.new(:region_id => params[:region_id], :partner_id => params[:partner_id])
 
     respond_to do |format|
       if @agent.save
@@ -49,7 +53,7 @@ class Admin::AgentsController < Admin::ApplicationController
     @agent = Agent.find(params[:id])
 
     respond_to do |format|
-      if @agent.update_attributes(params[:agent])
+      if @agent.update_attributes(:region_id => params[:region_id], :partner_id => params[:partner_id])
         format.html { redirect_to admin_agents_url, notice: '修改成功!' }
       else
         format.html { render action: "edit" }
@@ -64,6 +68,16 @@ class Admin::AgentsController < Admin::ApplicationController
     respond_to do |format|
       format.html { redirect_to admin_agents_url }
     end
+  end
+
+  def get_partners
+    # @partners = Partner.where(:region_id => params[:id])
+    # @partners = Partner.where(:region_id => [1537])
+    # Partner.where(:region_id => Region.find(14).leaves.map {|i| i.id })
+    @partners = Partner.where(
+      :region_id => Region.find(params[:id]).leaves.map {|i| i.id }
+    )
+    render json: @partners
   end
 
 end
