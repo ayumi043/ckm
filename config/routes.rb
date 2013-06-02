@@ -31,6 +31,7 @@ Ckm::Application.routes.draw do
     resources :categories
     resources :indexsets
     resources :articles
+    resources :zhaoshangs
     resources :abouts
     resources :agents
 

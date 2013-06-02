@@ -1,0 +1,52 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_zhaoshangs_path %>">招商代理</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @zhaoshang.title %></li> 
+<% end %>
+
+
+<%= form_for [:admin, @zhaoshang] do |f| %>
+
+  <% if @zhaoshang.errors.any? %>
+    <div id="error_explanation">
+      
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">&times;</button>
+        <strong>错误!</strong> 
+        <span>发生了<%= pluralize(@zhaoshang.errors.count, "") %>个错误！</span>
+        <ul>
+        <% @zhaoshang.errors.messages.each do |msg| %>
+          <li><%= msg.last.first %></li>
+        <% end %>
+        </ul>
+      </div>
+
+    </div>
+  <% end %>
+
+  <% errors = @zhaoshang.errors.messages %>
+
+  <div class="field">
+    <span>
+      <%#= f.text_field :title %>
+      <input type="text" name="zhaoshang[title]" value="<%= @zhaoshang.title %>" />
+    </span>
+    <span style="color:#f60;"><%= "#{errors[:title].first}" if errors[:title] %></span>
+  </div>
+
+  <div class="field">
+    状态：<%= f.check_box :state, :checked => true %>启用
+  </div>
+
+  <div class="field">
+    <%= f.label :内容 %>
+    <%= f.ueditor_text :content %>
+    <span style="color:#f60;"><%= "#{errors[:content].first}" if errors[:content] %></span>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "确 定" %>
+  </div>
+<% end %>
