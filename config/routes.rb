@@ -7,6 +7,8 @@ Ckm::Application.routes.draw do
   mount UeditorRails::Engine => '/ueditor'
 
 
+  get 'about/(:id)' => 'abouts#show'
+
   resources :partners
 
   namespace :admin do

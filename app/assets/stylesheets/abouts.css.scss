@@ -1,0 +1,33 @@
+// Place all the styles related to the abouts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.nleft{
+  width: 160px;float: left;
+  .ntitle{background: url(tit.png) no-repeat; width: 157px; height: 42px;line-height: 42px;
+    text-align: center;color:#fff; font-size: 16px;
+  }
+  .nul{
+    margin-top: 8px;
+    li{
+      background: url(nbg.png) no-repeat; width: 157px; height: 37px; line-height: 37px;
+      margin-bottom: 0px;
+      text-align: center;
+      font-size: 13px;
+      a{color: #666;}
+    }
+    .actived{
+      background: #dbdbdb;
+      a{color: red;}
+    }
+    li:hover{
+      background: #dbdbdb;
+      a{color: red;}
+    }
+  }
+}
+
+.nright{
+  float: left;
+  width: 830px;
+}
