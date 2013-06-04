@@ -5,10 +5,10 @@
 .nleft{
   width: 160px;float: left;
   .ntitle{background: url(tit.png) no-repeat; width: 157px; height: 42px;line-height: 42px;
-    text-align: center;color:#fff; font-size: 16px;
+    text-align: center;color:#fff; font-size: 15px;
   }
   .nul{
-    margin-top: 8px;
+    margin-top: 6px;
     li{
       background: url(nbg.png) no-repeat; width: 157px; height: 37px; line-height: 37px;
       margin-bottom: 0px;
@@ -30,4 +30,9 @@
 .nright{
   float: left;
   width: 830px;
+  .bc{height:40px;background:#f4f4f4}
+  .wra{
+    padding-left:20px;
+    padding-top: 10px;
+  }
 }
