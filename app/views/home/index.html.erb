@@ -17,7 +17,7 @@
             onLabelShow: function (event, label, code) {//动态显示内容
                 $.each(dataStatus, function (i, items) {
                     if (code == items.cha) {
-                        label.html( "<div style='padding:8px;min-width:120px;'><span style='color:#f60'>" + items.name + "</span>" + "<br>" + items.des
+                        label.html( "<div style='padding:8px;min-width:120px;'><span style='color:#f60;font-size:14px;'>" + items.name + "</span>" + "<br>" + items.des
                              +"</div>"
                         );
                     }
@@ -112,8 +112,8 @@
     </div>
 
     <div class="ri">
-        <div style="width: 290px; height: 80px;background:#dcdcdc;">
-            
+        <div class="video">
+            <embed src="http://player.youku.com/player.php/sid/XNDQ5ODY3NDQ4/v.swf" allowFullScreen="true" quality="high" width="290" height="240" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
         </div>
     </div>
 

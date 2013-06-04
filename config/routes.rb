@@ -6,11 +6,14 @@ Ckm::Application.routes.draw do
 
   mount UeditorRails::Engine => '/ueditor'
 
+  get 'about/' => redirect("/about/1")
+  get 'about/(:id)' => 'abouts#show', :constraints => {:id => /[1-4]/}
 
   resources :partners
 
   namespace :admin do
 
+    get 'showpartners/(:id)' => 'agents#get_partners'
     get 'regions/(:id)' => 'partners#get_regions'
 
     resources :downloads
@@ -30,6 +33,7 @@ Ckm::Application.routes.draw do
     resources :categories
     resources :indexsets
     resources :articles
+    resources :zhaoshangs
     resources :abouts
     resources :agents
 

@@ -5,4 +5,6 @@ class Region < ActiveRecord::Base
   acts_as_nested_set
   has_many :partners
   has_many :shops
+
+  has_one :agent
 end

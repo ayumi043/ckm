@@ -1,0 +1,26 @@
+<% if  notice %>
+	<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>操作提示</h4>
+  	<%= notice %>
+	</div>
+<% end %>
+
+<p>
+  <b>标题:</b>
+  <%= @zhaoshang.title %>
+</p>
+
+<p>
+  <b>状态:</b>
+  <%= @zhaoshang.state_name %>
+</p>
+
+<p>
+  <b>新闻内容:</b>
+  <%= raw @zhaoshang.content %>
+</p>
+
+
+<%= link_to '编辑', edit_admin_zhaoshang_path(@zhaoshang) %> |
+<%= link_to '返回', admin_zhaoshangs_path %>
