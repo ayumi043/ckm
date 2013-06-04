@@ -34,7 +34,7 @@ class Admin::IndexsetsController < Admin::ApplicationController
   def create
     @indexset = Indexset.new(params[:indexset])
     @indexset.date = Time.now
-    @indexset.picture = uploadFile(params[:indexset]["picture"])    
+    @indexset.picture = uploadFile(params[:indexset]["picture"]) if params[:indexset]["picture"]   
     # binding.pry
 
     respond_to do |format|
