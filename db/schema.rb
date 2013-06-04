@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20130531162121) do
     t.integer "lft",                        :default => 0
     t.integer "rgt",                        :default => 0
     t.integer "depth"
+    t.string  "cha"
   end
 
   add_index "regions", ["parent_id"], :name => "parent_id"
