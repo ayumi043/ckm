@@ -7,11 +7,15 @@
       <% @abouts.each do |about| %>
       <li <%= raw "class='actived'" if params[:id] == about.id.to_s %>><a href="/about/<%= about.id %>"><%= about.title %></a></li>
       <% end %>
+      <li <%= raw "class='actived'" if controller_name == "news" %>><a href="/news">企业新闻</a></li>
     </ul>
   </div>
 
-  <div>
-    <%= raw @about.content %>
+  <div class="nright">
+    <div class="bc"><span class="ch">Introduce</span><span class="sch">走进车快美</span></div>
+    <div class="wra">
+      <%= raw @about.content %>
+    </div>
   </div>
 
 </div>

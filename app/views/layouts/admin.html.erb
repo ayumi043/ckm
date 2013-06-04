@@ -79,24 +79,35 @@
                 <div class="span3" id="sidebar">
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                         <li <%= current_class("home") %> >
-                            <a href="/admin"><i class="icon-chevron-right"></i> 后台首页</a>
+                            <a href="/admin">后台首页</a>
                         </li>
-                        <li <%= current_class("abouts") %> >
-                            <a href="/admin/abouts">走进车快美</a>
-                        </li>
-                        <li <%= current_class("indexsets") %> >
-                            <a href="/admin/indexsets">首页设置</a>
-                        </li>
-                        <li 
-        class="dropdown-submenu<% if controller_name == "partners" || controller_name == "agents" then %> active<% end %>">
-                            <a href="/admin/partners"><i class="icon-chevron-right"></i> 加盟代理</a>
+                        <li class="dropdown-submenu<% if controller_name == "indexsets" || controller_name == "agents" then %> active<% end %>">
+                            <a><i class="icon-chevron-right"></i>首页设置</a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <a href="/admin/agents">地图设置</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/partners/new">添加盟友</a>
+                                    <a href="/admin/indexsets">模块设置</a>
                                 </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu<% if controller_name == "abouts" || controller_name == "articles" then %> active<% end %>" >
+                            <a href="/admin/abouts"><i class="icon-chevron-right"></i>走进车快美</a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin/abouts">公司概要</a></li>
+                                <li>
+                                    <a href="/admin/articles">新闻资讯</a>
+                                </li>
+                            </ul>
+                            
+                        </li>
+                        <li 
+        class="dropdown-submenu<% if controller_name == "partners" then %> active<% end %>">
+                            <a href="/admin/partners"><i class="icon-chevron-right"></i> 加盟代理</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin/jiameng">加盟概要</a></li>
                                 <li>
                                     <a href="/admin/partners">盟友列表</a>
                                 </li>
@@ -141,9 +152,6 @@
                                     <a href="/admin/categories">产品系列</a>
                                 </li>
                             </ul>
-                        </li>
-                        <li <%= current_class("articles") %>>
-                            <a href="/admin/articles"><span class="badge badge-info pull-right"><%= count_news %></span> 新闻资讯</a>
                         </li>
                         <li>
                             <a href="#">车快美学苑</a>

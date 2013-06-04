@@ -20,8 +20,30 @@ class Admin::AboutsController < Admin::ApplicationController
     end
   end
 
+  def new
+    @about = About.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+    end
+  end
+
   def edit
     @about = About.find(params[:id])
+  end
+
+  def create
+    @about = About.new(params[:about])
+    @about.pulishdate = Time.now
+    @about.ty_id = 1
+
+    respond_to do |format|
+      if @about.save
+        format.html { redirect_to admin_about_url(@about), notice: '添加成功！' }
+      else
+        format.html { render action: "new" }
+      end
+    end
   end
 
   def update
@@ -33,6 +55,15 @@ class Admin::AboutsController < Admin::ApplicationController
       else
         format.html { render action: "edit" }
       end
+    end
+  end
+
+  def destroy
+    @about = About.find(params[:id])
+    @about.destroy
+
+    respond_to do |format|
+      format.html { redirect_to admin_abouts_url }
     end
   end
 

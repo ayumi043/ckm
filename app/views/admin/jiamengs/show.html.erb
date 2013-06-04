@@ -1,0 +1,31 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_jiamengs_path %>">走进车快美</a> <span class="divider">/</span> 
+  </li>
+  <li class="active"><%= @jiameng.title %></li>
+<% end %>
+
+<% if notice %>
+  <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>操作提示</h4>
+    <%= notice %>
+  </div>
+<% end %>
+
+
+<h4><%= @jiameng.title %></h4>
+
+
+<p>
+  <b>状态:</b>
+  <%= @jiameng.state_name %>
+</p>
+
+<p>
+  <%= raw @jiameng.content %>
+</p>
+
+
+<%= link_to '编辑', edit_admin_jiameng_path(@jiameng) %> |
+<%= link_to '返回', admin_jiamengs_path %>

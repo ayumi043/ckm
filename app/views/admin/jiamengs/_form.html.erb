@@ -1,22 +1,22 @@
 <% content_for(:nav)  do %>
   <li>
-    <a href="<%= admin_abouts_path %>">走进车快美</a><span class="divider">/</span>
+    <a href="<%= admin_jiamengs_path %>">走进车快美</a><span class="divider">/</span>
   </li>
   <li>
-  <li class="active"><%= @about.title %></li> 
+  <li class="active"><%= @jiameng.title %></li> 
 <% end %>
 
-<%= form_for [:admin, @about] do |f| %>
+<%= form_for [:admin, @jiameng] do |f| %>
 
-  <% if @about.errors.any? %>
+  <% if @jiameng.errors.any? %>
     <div id="error_explanation">
       
       <div class="alert alert-error">
         <button class="close" data-dismiss="alert">&times;</button>
         <strong>错误!</strong> 
-        <span>发生了<%= pluralize(@about.errors.count, "") %>个错误！</span>
+        <span>发生了<%= pluralize(@jiameng.errors.count, "") %>个错误！</span>
         <ul>
-        <% @about.errors.messages.each do |msg| %>
+        <% @jiameng.errors.messages.each do |msg| %>
           <li><%= msg.last.first %></li>
         <% end %>
         </ul>
@@ -25,7 +25,7 @@
     </div>
   <% end %>
 
-  <% errors = @about.errors.messages %>
+  <% errors = @jiameng.errors.messages %>
 
 <div class="field">
     <span>

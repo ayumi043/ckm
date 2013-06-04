@@ -1,14 +1,14 @@
 
 <% content_for(:nav)  do %>
   <li>
-    <a href="<%= admin_abouts_path %>">走进车快美</a>
+    <a href="<%= admin_jiamengs_path %>">走进车快美</a>
   </li> 
 <% end %>
 
 <div class="row-fluid">
 
   <div>
-     <a href="<%= new_admin_about_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加</a>
+     <a href="<%= new_admin_jiameng_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加</a>
   </div>
 
   <!-- block -->
@@ -27,14 +27,14 @@
               </thead>
               <tbody>
 
-                <% @abouts.each do |about| %>
+                <% @jiamengs.each do |jiameng| %>
                   <tr>
-                    <td><%= about.title %></td>
-                    <td><%= about.state_name %></td>
+                    <td><%= jiameng.title %></td>
+                    <td><%= jiameng.state_name %></td>
                     <td>
-                        <a href="<%= admin_about_path(about) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
-                        <a href="<%= edit_admin_about_path(about) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
-                        <a href="<%= admin_about_path(about) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
+                        <a href="<%= admin_jiameng_path(jiameng) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
+                        <a href="<%= edit_admin_jiameng_path(jiameng) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
+                        <a href="<%= admin_jiameng_path(jiameng) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
                     </td>                   
                   </tr>
                 <% end %>
