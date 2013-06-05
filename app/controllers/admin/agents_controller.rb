@@ -42,7 +42,7 @@ class Admin::AgentsController < Admin::ApplicationController
 
     respond_to do |format|
       if @agent.save
-        format.html { redirect_to admin_agent_url(@agent), notice: '添加成功！' }
+        format.html { redirect_to admin_agents_url, notice: '添加成功！' }
       else
         format.html { render action: "new" }
       end
