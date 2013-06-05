@@ -33,7 +33,7 @@ class Admin::PartnersController < Admin::ApplicationController
    # POST /posts
   def create
     @partner = Partner.new(params[:partner])
-    @partner.picture = uploadFile(params[:partner]["picture"]) 
+    @partner.picture = uploadFile(params[:partner]["picture"]) if params[:partner]["picture"]
 
     respond_to do |format|
       if @partner.save

@@ -6,6 +6,7 @@ class Agent < ActiveRecord::Base
   belongs_to :region
   belongs_to :partner
   # validates :name, :presence => { :message => "名称不能为空" }
+  validates :partner_id, :presence => { message: "请选择省份下的代理商"}
   validates :region_id, :uniqueness => {:message => "该省份已添加了代理商了"}
 
 end

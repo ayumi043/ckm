@@ -6,7 +6,7 @@
   <li class="active"><%= @partner.name %></li> 
 <% end %>
 
-<%= simple_form_for [:admin, @partner] do |f| %>
+<%= simple_form_for [:admin, @partner], defaults: { input_html: { onsubmit: 'return validate' } } do |f| %>
 
   <fieldset>
    
@@ -32,12 +32,15 @@
 
     <%= f.label :盟友名称 %>    
     <%= f.text_field :name %>
+    <span style="color:#f60;"><%= "#{errors[:name].first}" if errors[:name] %></span>
 
     <%= f.label :店名 %>    
     <%= f.text_field :dianming %>
+    <span style="color:#f60;"><%= "#{errors[:dianming].first}" if errors[:dianming] %></span>
 
     <%= f.label :图片 %>
     <%= f.file_field :picture %>
+    <span style="color:#f60;"><%= "#{errors[:picture].first}" if errors[:picture] %></span>
 
     <%= f.label :面积 %>    
     <%= f.text_field :mianji %>
@@ -59,12 +62,20 @@
 
     <% if f.object.nil? || f.object.new_record? %>
       
-      <%= select_tag "sheng", 
+      <%#= select_tag "sheng", 
         options_from_collection_for_select(Region.where(:parent_id => nil), "id", "region_name")%>
+      <select id="sheng">
+        <option value="">请选择...</option>
+        <% Region.where(:parent_id => nil).each do |region| %>
+          <option value="<%= region.id %>"><%= region.region_name %></option>
+        <% end %>
+      </select>  
       <select id="shi">
       </select>
       <select id="xian" name="partner[region_id]">
       </select>
+      <span style="color:#f60;"><%= "#{errors[:region_id].first}" if errors[:region_id] %></span>
+
 
     <% else%>
 
@@ -83,6 +94,8 @@
           <option <% if region.id == @partner.region.id %>selected<% end %>  value="<%= region.id %>"><%= region.region_name %></option>
         <% end %>
       </select>
+      <span style="color:#f60;"><%= "#{errors[:region_id].first}" if errors[:region_id] %></span>
+
 
     <% end %> 
     
@@ -90,9 +103,9 @@
 
     <%= f.label :描述 %>
     <%= f.ueditor_text :description %>
-      <span style="color:#f60;"><%= "#{errors[:description].first}" if errors[:description] %></span>
-
-    <%= f.submit '确定' %>
+    
+    <input id="submit" type="submit" value="确定" />  
+    <%#= f.submit '确定' %>
 
   </fieldset>
 <% end %>
