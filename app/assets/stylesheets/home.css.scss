@@ -38,6 +38,11 @@
 .select{
   background: url(menu_select.gif) repeat-x;
 }
+.mapwrap{
+  width: 100%;
+  height: 350px;
+  background: url(map_1.png) 0px bottom repeat-x;
+}
 .map{
   width:990px;
   height: 350px;
@@ -45,7 +50,8 @@
   overflow: hidden
 }
 #container{
-  width:990px;height: 350px;margin-left: 990px;
+  width:990px;height:350px;
+  background: url(map_2.png);
 }
 .content{
   margin-top: 8px;width: 990px;
@@ -177,9 +183,9 @@ color:#999;
 }
 
 .footer{
-  width: 100%; height: 135px;
+  width: 100%; height: 130px;
   background: url(bottom.png) repeat-x;
-  margin-top: 28px;
+  margin-top: 20px;
   text-align: center;
   .cc{
     width: 900px;
@@ -197,3 +203,4 @@ color:#999;
 
 .ad1{width:120px;height:400px;position: absolute;left:2px;top:155px;}
 .ad2{width:120px;height:400px;position: absolute;right:2px;top:155px;}
+.clos{position:absolute;left: 5px;top: 8px;color:#fff;cursor: pointer;}

@@ -17,7 +17,7 @@
             onLabelShow: function (event, label, code) {//动态显示内容
                 $.each(dataStatus, function (i, items) {
                     if (code == items.cha) {
-                        label.html( "<div style='padding:8px;min-width:120px;'><span style='color:#f60;font-size:14px;'>" + items.name + "</span>" + "<br>" + items.des
+                        label.html( "<div style='padding:8px;min-width:120px;'><span style='color:#f60;font-size:12px;'>" + items.name + "</span>" + "<br>" + items.des
                              +"</div>"
                         );
                     }
@@ -49,8 +49,10 @@
 </script>
 <% end %>
 
-<div class="map">
-    <div id="container"></div>
+<div class="mapwrap">
+    <div class="map">
+        <div id="container"></div>
+    </div>
 </div>
 
 <div class="content clearfix">
@@ -137,9 +139,11 @@
 
 <div class="ad1">
     <img src="/assets/s1.jpg">
+    <div class="clos">关闭</div>
 </div>
 <div class="ad2">
     <img src="/assets/s2.jpg">
+    <div class="clos">关闭</div>
 </div>
 
 <script> 
@@ -205,6 +209,12 @@ ad.style.top = curTop + (ad.DirV ? 1 : -1) + "px";
 } 
 } 
 } 
+
+    $(function(){
+        $(".clos").click(function(){
+            $(".ad1,.ad2").hide();
+        });
+    });
 
 </script> 
 

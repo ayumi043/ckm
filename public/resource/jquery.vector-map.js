@@ -8,7 +8,7 @@
 (function( $ ){
     
     var apiParams = {
-        colors: 1,
+    colors: 1,
 		values: 1,
 		backgroundColor: 1,
 		scaleColors: 1,
