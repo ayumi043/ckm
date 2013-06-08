@@ -1,0 +1,24 @@
+<div style="width: 990px;margin-top:10px;"><img src="/assets/about.png" /></div>
+
+<div class="content clearfix">
+
+  <div class="nleft">
+    <h2 class="ntitle">加盟代理</h2>
+    <ul class="nul">
+      <% @jiamengs.each do |jiameng| %>
+      <li <%= raw "class='actived'" if params[:id] == jiameng.id.to_s %>><a href="/jiameng/<%= jiameng.id %>"><%= jiameng.title %></a></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="nright">
+    
+    <div class="bc"><span class="ch">Introduce</span><span class="sch">加盟代理</span></div>
+    
+    <div class="wra">
+      <%= raw @jiameng.content %>
+    </div>
+
+  </div>
+
+</div>

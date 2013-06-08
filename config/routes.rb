@@ -6,8 +6,12 @@ Ckm::Application.routes.draw do
 
   mount UeditorRails::Engine => '/ueditor'
 
-  # resources :
-  resources :daili
+
+  resources :news do
+    get 'page/:page', :action => :index, :on => :collection
+  end
+  resources :jiameng
+  resources :zs
 
   get 'about/' => redirect("/about/1")
   get 'about/(:id)' => 'abouts#show'
@@ -16,7 +20,6 @@ Ckm::Application.routes.draw do
   resources :partners
 
   namespace :admin do
-
     get 'showpartners/(:id)' => 'agents#get_partners'
     get 'regions/(:id)' => 'partners#get_regions'
 
@@ -41,7 +44,6 @@ Ckm::Application.routes.draw do
     resources :zhaoshangs
     resources :abouts
     resources :agents
-
   end
 
   root :to => 'home#index'

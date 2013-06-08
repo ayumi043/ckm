@@ -3,6 +3,7 @@
 <head>
   <title>厦门车快美汽车服务有限公司</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <link href="http://libs.baidu.com/bootstrap/2.0.4/css/bootstrap.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
@@ -17,8 +18,8 @@
     <div class="menu">
       <ul>
         <li <%= current_menu("home") %> id="home"><a href="/">首页</a></li>
-        <li <%= current_menu("abouts") %> ><a href="/about">走进车快美</a></li>
-        <li>加盟代理</li>
+        <li <%= current_menu("abouts", "news") %> ><a href="/about">走进车快美</a></li>
+        <li <%= current_menu("jiameng") %> ><a href="/jiameng">加盟代理</a></li>
         <li>招商政策</li>
         <li>项目与产品</li>
         <li>车快美学苑</li>

@@ -53,3 +53,5 @@ gem 'simple_form'
 gem 'awesome_nested_set'
 
 gem 'rvm-capistrano'
+
+gem "kaminari"
