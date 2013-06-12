@@ -1,0 +1,73 @@
+<%= form_for [@shenqing], :url => "/shenqing" do |f| %>
+
+  <% if @shenqing.errors.any? %>
+    <div id="error_explanation">
+      
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">&times;</button>
+        <strong>错误!</strong> 
+        <span>发生了错误！如下：</span>
+        <ul>
+        <% @shenqing.errors.messages.each do |msg| %>
+          <li><%= msg.last.first %></li>
+        <% end %>
+        </ul>
+      </div>
+
+    </div>
+  <% end %>
+
+  <% errors = @shenqing.errors.messages %>
+
+  <div class="field">
+    <span>
+      <input type="radio" checked name="shenqing[type]" value="0" /> 我要加盟&nbsp;&nbsp;
+      <input type="radio" name="shenqing[type]" value="1" /> 我要开店
+    </span>&nbsp;&nbsp;
+    <span style="color:#f60;"><%= errors[:type].first if errors[:type] %></span>
+  </div>
+
+  <div class="field" style="margin-top: 12px;">
+    <%= f.label :联系人 %>
+    <%= f.text_field :name %>
+    <span style="color:#f60;"><%= errors[:name].first if errors[:name] %></span>
+  </div>
+
+  <div class="field">
+    <%= f.label :地区 %>
+    <select id="sheng">
+    <option value="">请选择...</option>
+    <% Region.where(:parent_id => nil).each do |region| %>
+      <option value="<%= region.id %>"><%= region.region_name %></option>
+    <% end %>
+    </select>  
+    <select id="shi">
+    </select>
+    <select id="xian" name="shenqing[region_id]">
+    </select>
+    <span style="color:#f60;"><%= "#{errors[:region_id].first}" if errors[:region_id] %></span>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :电话 %>
+    <%= f.text_field :tel %>
+    <span style="color:#f60;"><%= "#{errors[:tel].first}" if errors[:tel] %></span>
+  </div>
+
+  <div class="field">
+    <%= f.label :电子邮件 %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :备注 %>
+    <%= f.text_area :description, :cols => "40", :rows => "4" %>
+  </div>
+
+  <br>
+
+  <div class="actions">
+    <%= f.submit "确 定" %>
+  </div>
+<% end %>

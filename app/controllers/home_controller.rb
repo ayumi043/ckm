@@ -28,6 +28,7 @@ class HomeController < ApplicationController
     }
 
     @partners = Partner.first(5)
+    @indexsets = Indexset.all
   end
 
 end

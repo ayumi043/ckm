@@ -63,7 +63,7 @@
         </div>
         <div class="box">
             <div class="focus">
-                <img src="<%= asset_path 'focus.png' %>" />
+                <img src="<%= @indexsets.first.picture %>" />
             </div>
             <div class="txtz">
                 <ul>
@@ -115,7 +115,7 @@
 
     <div class="ri">
         <div class="video">
-            <embed src="http://player.youku.com/player.php/sid/XNDQ5ODY3NDQ4/v.swf" allowFullScreen="true" quality="high" width="290" height="240" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+            <embed src="<%= @indexsets.at(1).url %>" allowFullScreen="true" quality="high" width="290" height="240" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
         </div>
     </div>
 

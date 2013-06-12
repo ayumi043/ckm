@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531162121) do
+ActiveRecord::Schema.define(:version => 20130611155956) do
 
   create_table "admin", :force => true do |t|
     t.string   "email",       :limit => 50,  :null => false
@@ -133,6 +133,17 @@ ActiveRecord::Schema.define(:version => 20130531162121) do
 
   add_index "regions", ["parent_id"], :name => "parent_id"
   add_index "regions", ["region_type"], :name => "region_type"
+
+  create_table "shenqings", :force => true do |t|
+    t.integer  "type"
+    t.integer  "region_id"
+    t.string   "tel"
+    t.string   "name"
+    t.string   "email"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "shops", :force => true do |t|
     t.string   "name"

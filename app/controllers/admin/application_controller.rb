@@ -1,7 +1,7 @@
 class Admin::ApplicationController < ApplicationController
 
   # binding.pry
-  before_filter :authenticate
+  before_filter :authenticate, :except => [:get_regions]
 
   layout "admin"
 

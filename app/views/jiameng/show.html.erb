@@ -8,6 +8,7 @@
       <% @jiamengs.each do |jiameng| %>
       <li <%= raw "class='actived'" if params[:id] == jiameng.id.to_s %>><a href="/jiameng/<%= jiameng.id %>"><%= jiameng.title %></a></li>
       <% end %>
+      <li <%= raw "class='actived'" if controller_name == "shenqing" %> ><a href="/shenqing">申请加盟</a></li>
     </ul>
   </div>
 

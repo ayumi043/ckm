@@ -1,0 +1,54 @@
+
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_shenqings_path %>">加盟代理申请</a>
+  </li> 
+<% end %>
+
+<div class="row-fluid">
+
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">加盟代理申请</div>         
+      </div>
+      <div class="block-content collapse in">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <td>联系人</td>
+                      <td>类型</td>
+                      <td>地区</td>
+                      <td>电话</td>
+                      <td>电子邮件</td>
+                      <td>备注</td>
+                      <th width="150">操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                <% @shenqings.each do |shenqing| %>
+                  <tr>
+                    <td><%= shenqing.name %></td>
+                    <td><%= shenqing.type_name %></td>
+                    <td>
+                      <%= "#{shenqing.region.parent.parent.region_name} #{shenqing.region.parent.region_name} #{shenqing.region.region_name}" %>
+                    </td>
+                    <td><%= shenqing.tel %></td>
+                    <td><%= shenqing.email %></td>
+                    <td><%= shenqing.description.slice(0,10) %></td>
+                    <td>
+                      <a href="<%= admin_shenqing_path(shenqing) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
+                        &nbsp;
+                        <a href="<%= admin_shenqing_path(shenqing) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
+
+                    </td>                   
+                  </tr>
+                <% end %>
+              
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <!-- /block -->
+</div>  

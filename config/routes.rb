@@ -7,6 +7,7 @@ Ckm::Application.routes.draw do
   mount UeditorRails::Engine => '/ueditor'
 
 
+  resources :shenqing
   resources :news do
     get 'page/:page', :action => :index, :on => :collection
   end
@@ -23,6 +24,7 @@ Ckm::Application.routes.draw do
     get 'showpartners/(:id)' => 'agents#get_partners'
     get 'regions/(:id)' => 'partners#get_regions'
 
+    resources :shenqings
     resources :jiamengs
     resources :downloads
     resources :teams
