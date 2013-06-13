@@ -39,7 +39,7 @@ class Admin::IndexsetsController < Admin::ApplicationController
 
     respond_to do |format|
       if @indexset.save
-        format.html { redirect_to admin_indexset_url(@indexset), notice: 'indexset was successfully created.' }
+        format.html { redirect_to admin_indexset_url(@indexset), notice: '添加成功！' }
       else
         format.html { render action: "new" }
       end
@@ -48,10 +48,12 @@ class Admin::IndexsetsController < Admin::ApplicationController
 
   def update
     @indexset = Indexset.find(params[:id])
+    tmp =  params[:indexset]
+    tmp[:picture] = uploadFile(params[:indexset]["picture"])  if params[:indexset]["picture"]
 
     respond_to do |format|
-      if @indexset.update_attributes(params[:indexset])
-        format.html { redirect_to admin_indexset_url(@indexset), notice: 'indexset was successfully updated.' }
+      if @indexset.update_attributes(tmp)
+        format.html { redirect_to admin_indexset_url(@indexset), notice: '更新成功！' }
       else
         format.html { render action: "edit" }
       end
