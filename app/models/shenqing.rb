@@ -4,8 +4,8 @@ class Shenqing < ActiveRecord::Base
   attr_accessible :jtype, :region_id, :tel, :name, :email, :description
 
   belongs_to :region
-  
-  validates :type, :presence => { :message => "请选择加盟类型" }
+
+  validates :jtype, :presence => { :message => "请选择加盟类型" }
   validates :region_id, :presence => { :message => "请选择地区" }
   validates :name, :presence => { :message => "联系人不能为空" }
   validates :tel,

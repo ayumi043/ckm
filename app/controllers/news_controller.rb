@@ -15,7 +15,10 @@ class NewsController < ApplicationController
   end
 
   def show
-    @new = Article.find(params[:id])
+    @abouts = About.where(:ty_id => [1,2,3,4], :state => 1)
+                   .select("id, title")
+                   
+    @news = Article.find(params[:id])
 
     respond_to do |format|
       format.html

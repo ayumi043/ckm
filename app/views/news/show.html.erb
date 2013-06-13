@@ -1,0 +1,26 @@
+<div style="width: 990px;margin-top:10px;"><img src="/assets/about.png" /></div>
+
+<div class="content clearfix">
+
+  <div class="nleft">
+    <h2 class="ntitle">走进车快美</h2>
+    <ul class="nul">
+      <% @abouts.each do |about| %>
+      <li <%= raw "class='actived'" if params[:id] == about.id.to_s %>><a href="/about/<%= about.id %>"><%= about.title %></a></li>
+      <% end %>
+      <li <%= raw "class='actived'" if controller_name == "news" %>><a href="/news">企业新闻</a></li>
+    </ul>
+  </div>
+
+  <div class="nright">
+    
+    <div class="bc"><span class="ch">Introduce</span><span class="sch">走进车快美</span></div>
+    
+    <div class="wra">
+      <div style="font-size:16px;font-weight: bold; text-align: center;margin-bottom: 12px;"><%= @news.title %></div>
+      <%= raw @news.content %>
+    </div>
+
+  </div>
+
+</div>
