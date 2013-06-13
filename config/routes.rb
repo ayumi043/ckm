@@ -6,7 +6,8 @@ Ckm::Application.routes.draw do
 
   mount UeditorRails::Engine => '/ueditor'
 
-
+  resources :downloads
+  get "contact" => "contact#index"
   resources :shenqing
   resources :news do
     get 'page/:page', :action => :index, :on => :collection
