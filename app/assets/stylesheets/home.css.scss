@@ -126,7 +126,24 @@ color:#999;
 
 .ri{
   width: 290px; float: right;
-  .video{width: 290px; height: 80px;}
+  .video{width: 290px; height: 240px;}
+  .vs{
+    border:1px solid #e2dedf;
+    ul{margin: 16px 0px 0px 16px;}
+    li{
+      width: 257px; height: 31px; line-height: 31px;
+      background: url(vbs.png) no-repeat;
+      padding-left: 40px;
+      margin-bottom: 8px;
+    }
+  }
+  .vbs{
+    font-size:16px; background: #fbfbfd;font-weight: bold; 
+    color:#004ca7;padding-left: 20px;height: 33px;
+    line-height: 33px;
+    border-top:3px solid #004ca7;
+    border-bottom: 1px solid #e2dedf;
+  }
 }
 
 .tp{

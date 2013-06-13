@@ -29,9 +29,7 @@
         });
 
         $('#container').vectorMap('set', 'colors', {FUJ: "#00FF00"});
-        $('#container').vectorMap('set', 'colors', {QIH: "#fff"});
         $('#container').vectorMap('set', 'colors', {NMG: "#4a9fc5"});
-        $('#container').vectorMap('set', 'colors', {JIL: "#fff"});
         $('#container').vectorMap('set', 'colors', {GUI: "#4a9fc5"});
 
         $.each(dataStatus, function (i, items) {
@@ -117,6 +115,41 @@
         <div class="video">
             <embed src="<%= @indexsets.at(1).url %>" allowFullScreen="true" quality="high" width="290" height="240" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
         </div>
+
+        <div class="vs">
+            <div class="vbs">加盟代理</div>
+            <ul>
+                <li>
+                    <a href="<%= @indexsets.at(2).url %>">
+                        <%= @indexsets.at(2).title %>
+                    </a>
+                </li>
+                <li>
+                    <a href="<%= @indexsets.at(3).url %>">
+                        <%= @indexsets.at(3).title %>
+                    </a>
+                </li>
+                <li>
+                    <a href="<%= @indexsets.at(4).url %>">
+                        <%= @indexsets.at(4).title %>
+                    </a>
+                </li>
+                <li>
+                    <a href="<%= @indexsets.at(5).url %>">
+                        <%= @indexsets.at(5).title %>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="vbs">极速快修</div>
+            <ul>
+                <li>代理条件</li>
+                <li>代理合同</li>
+                <li>店面选址</li>
+                <li>投资估算</li>
+            </ul>
+        </div>
+
     </div>
 
     <div class="fc clearfix">
