@@ -6,6 +6,7 @@ Ckm::Application.routes.draw do
 
   mount UeditorRails::Engine => '/ueditor'
 
+  resources :service
   resources :downloads
   get "contact" => "contact#index"
   resources :shenqing

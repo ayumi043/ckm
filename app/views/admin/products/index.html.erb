@@ -23,9 +23,9 @@
     <div class="block-content collapse in">
 
       <div class="row-fluid">
-        <% @products.in_groups_of(3) do |products| %>
+        <% @products.in_groups_of(3, false) do |products| %>
         <ul class="thumbnails">
-          <% @products.each do |product| %>
+          <% products.each do |product| %>
             <li class="span4">
               <div class="thumbnail">
                 <img style="width: 300px; height: 200px;" src="<%= product.picture %>">

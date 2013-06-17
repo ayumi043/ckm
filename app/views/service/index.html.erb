@@ -1,0 +1,45 @@
+<div style="width: 990px;margin-top:10px;font-size:13px;color:#999;">
+  您的位置：首页 > 产品库 > 美容清洗系列 > 产品展示
+</div>
+
+<div class="content clearfix">
+
+  <div class="nleft">
+    <h2 class="ntitle">项目与产品</h2>
+    <ul class="nul">
+      <% @categories.each do |category| %>
+      <li <%= raw "class='actived'" if params[:id] == category.id.to_s %>><a href="/service/category/<%= category.id %>"><%= category.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="nright">
+    
+    <div class="bc"><span class="ch">Introduce</span><span class="sch">项目与产品</span></div>
+    
+    <div class="wra">
+      
+      <% @products.in_groups_of(3, false) do |products| %>
+      <ul>
+        <% products.each do |product| %>
+          <li>
+            <div>
+              <img style="width: 203px;" src="<%= product.picture %>">
+              <div class="caption">
+                <%= link_to product.prodname, service_path(product) %>
+              </div>
+            </div>
+          </li>
+          <% end %>
+      </ul>
+      <% end %>
+
+      <div class="page">
+        <%= paginate @products %>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
