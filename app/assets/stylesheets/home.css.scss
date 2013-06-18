@@ -192,7 +192,8 @@ color:#999;
       width: 182px;
       height: 125px;
     }
-    a{font-size: 13px;color:#333;}
+    div{margin-top:5px;}
+    a{font-size: 12px;color:#333;}
     .dm{font-weight: bold;}
   }
 }
@@ -222,6 +223,9 @@ color:#999;
     }
   }
 }
+
+.content{overflow:hidden;}
+.title{height:28px; overflow:hidden;}
 
 .ad1{width:120px;height:400px;position: absolute;left:2px;top:155px;}
 .ad2{width:120px;height:400px;position: absolute;right:2px;top:155px;}
