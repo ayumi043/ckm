@@ -9,6 +9,11 @@ $ ->
 	$(".pre").click ->
 		$(".ani").animate "margin-left": "0px"
 
+	$(".menu li").hover(
+	  -> $(this).addClass("mhover")
+	  -> $(this).removeClass("mhover")
+	)  
+
 	$("#about,#jiameng,#zs,#service").hover(
 	  -> 
 	  	$(this).stop().addClass("mhover").find(".moremenu").slideDown()
