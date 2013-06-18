@@ -1,6 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery :except => :upload
 
+  before_filter :load_menu_item
+
+  def load_menu_item
+    @abouts = About.where(:ty_id => [1,2,4], :state => 1).select("id, title")
+    @jiamengs = Jiameng.where(:ty_id => 5)
+    @zhaoshangs = Zhaoshang.where(:ty_id => 14)
+    @categories = Category.all
+  end
+
   def uploadFile(file)   
 
     if !file.original_filename.empty?

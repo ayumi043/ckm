@@ -8,3 +8,8 @@ $ ->
 
 	$(".pre").click ->
 		$(".ani").animate "margin-left": "0px"
+
+	$("#about,#jiameng,#zs,#service").hover(
+	  -> $(this).stop().find(".moremenu").slideDown()
+	  -> $(this).stop().find(".moremenu").slideUp()
+	)  

@@ -21,6 +21,7 @@
 .menu ul{
   width:990px;
   margin:0 auto;
+  position: relative;
 }
 .menu li{
   width: 110px;
@@ -30,7 +31,24 @@
   text-align: center;
   height: 44px;
   line-height: 44px;
+  margin-right: 3px;
 }
+
+.menu li:hover{
+  background: url(menu_select.gif) repeat-x;
+}
+
+.moremenu{
+  display:none;
+  width:950px; /*height: 173px;*/ 
+  z-index: 1001;filter:alpha(opacity=90);
+  left:0px; position: absolute; 
+  top:44px; background-color:#0088cc; 
+  opacity: 0.9; 
+  padding-left: 40px;
+  .mli{float: left;width: 160px; font-size: 14px;}
+}
+
 #home{
   width:90px;
 }

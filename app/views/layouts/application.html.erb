@@ -17,11 +17,40 @@
     <div class="top"></div>
     <div class="menu">
       <ul>
-        <li <%= current_menu("home") %> id="home"><a href="/">首页</a></li>
-        <li <%= current_menu("abouts", "news") %> ><a href="/about">走进车快美</a></li>
-        <li <%= current_menu("jiameng", "shenqing") %> ><a href="/jiameng">加盟代理</a></li>
-        <li <%= current_menu("zs") %>><a href="/zs">招商政策</a></li>
-        <li <%= current_menu("service") %>><a href="/service">项目与产品</a></li>
+        <li id="home"><a href="/">首页</a></li>
+        <li id="about" <%= current_menu("abouts", "news") %> >
+          <a href="/about">走进车快美</a>
+          <div class="moremenu">
+            <% @abouts.each do |about| %>
+              <div class="mli"><a href="/about/<%= about.id %>"><%= about.title %></a></div>
+            <% end %>
+            <div class="mli"><a href="/news">企业新闻</a></div>
+          </div>
+        </li>
+        <li id="jiameng" <%= current_menu("jiameng", "shenqing") %> >
+          <a href="/jiameng">加盟代理</a>
+          <div class="moremenu">
+            <% @jiamengs.each do |jiameng| %>
+              <div class="mli"><a href="/jiameng/<%= jiameng.id %>"><%= jiameng.title %></a></div>
+            <% end %>
+          </div>
+        </li>
+        <li id="zs" <%= current_menu("zs") %>>
+          <a href="/zs">招商政策</a>
+          <div class="moremenu">
+            <% @zhaoshangs.each do |zhaoshang| %>
+              <div class="mli"><a href="/zs/<%= zhaoshang.id %>"><%= zhaoshang.title %></a></div>
+            <% end %>
+          </div>
+        </li>
+        <li id="service" <%= current_menu("service") %>>
+          <a href="/service">项目与产品</a>
+          <div class="moremenu">
+            <% @categories.each do |category| %>
+              <div class="mli"><a href="/service/category/<%= category.id %>"><%= category.name %></a></div>
+            <% end %>
+          <div>
+        </li>
         <li>车快美学苑</li>
         <li <%= current_menu("downloads") %>><a href="/downloads">下载中心</a></li>
         <li <%= current_menu("contact") %>><a href="/contact">联系我们</a></li>
