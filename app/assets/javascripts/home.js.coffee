@@ -13,8 +13,8 @@ $ ->
 	$("#about,#jiameng,#zs,#service").hover(
 	  -> 
 	  	$(this).stop().addClass("mhover").find(".moremenu").slideDown()
-	  	$(".mapwrap").css("z-index", "-1")
+	  	$("#container").css("z-index", "-1")
 	  -> 
 	  	$(this).stop().removeClass("mhover").find(".moremenu").slideUp()
-	  	$(".mapwrap").css("z-index", "99")
+	  	$("#container").css("z-index", "99")
 	)  
