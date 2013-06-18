@@ -3,13 +3,6 @@
 class HomeController < ApplicationController
 
   def index
-    # @agents = Province.all.map{ |i| 
-    #   { :cha => i.cha, 
-    #     :name => i.name, 
-    #     :desc => i.agents.map{|i| "#{i.name}<br>#{i.description}<br>" }.join("")
-    #   }  
-    # }
-
     @agents = Region.where(:parent_id => nil).map { |i| 
       if i.agent 
         # p = i.try(:agent).try(:partner)
@@ -27,6 +20,8 @@ class HomeController < ApplicationController
       }  
     }
 
+    @products = Product.first(4)
+    @zhaoshangs = Zhaoshang.where(:ty_id => 14)
     @partners = Partner.first(5)
     @indexsets = Indexset.all
   end

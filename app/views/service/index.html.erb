@@ -17,14 +17,14 @@
     
     <div class="bc"><span class="ch">Introduce</span><span class="sch">项目与产品</span></div>
     
-    <div class="wra">
+    <div class="wra service">
       
       <% @products.in_groups_of(3, false) do |products| %>
       <ul>
         <% products.each do |product| %>
           <li>
-            <div>
-              <img style="width: 203px;" src="<%= product.picture %>">
+            <div class="ppi">
+              <img style="width: 200px;" src="<%= product.picture %>">
               <div class="caption">
                 <%= link_to product.prodname, service_path(product) %>
               </div>

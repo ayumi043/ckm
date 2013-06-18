@@ -64,14 +64,10 @@
                 <img width="305" height="183" src="<%= @indexsets.first.picture %>" />
             </div>
             <div class="txtz">
-                <ul>
-                    <li><a href="#">车快美汽车服务有限公司</a></li>
-                    <li><a href="#">车快美汽车服务有限公司</a></li>
-                    <li><a href="#">车快美汽车服务有限公司</a></li>
-                    <li><a href="#">车快美汽车服务有限公司</a></li>
-                    <li><a href="#">车快美汽车服务有限公司</a></li>
-                    <li><a href="#">车快美汽车服务有限公司</a></li>
-                    <li><a href="#">车快美汽车服务有限公司</a></li>
+                <ul> 
+                    <% @zhaoshangs.each do |zhaoshang| %>
+                      <li><a href="/zs/<%= zhaoshang.id %>">[招商政策] - <%= zhaoshang.title %></a></li>
+                    <% end %>
                 </ul>
             </div>
         </div>
@@ -87,22 +83,13 @@
             </div>
             <div class="tp clearfix">
                 <ul class="ani clearfix">
+                    <% @products.each do |product| %>
                     <li>
-                        <div class="name">极速快修</div>
-                        <img src="/assets/1.png" />
+                        <div class="name"><%= link_to product.prodname, admin_product_path(product) %></div>
+                        <img width="284" height="162" src="<%= product.picture %>">                      
+                      
                     </li>
-                    <li>
-                        <div class="name">极速快修</div>
-                        <img src="/assets/1.png" />
-                    </li>
-                    <li>
-                        <div class="name">极速快修</div>
-                        <img src="/assets/1.png" />
-                    </li>
-                    <li>
-                        <div class="name">极速快修</div>
-                        <img src="/assets/1.png" />
-                    </li>
+                    <% end %>
                 </ul> 
             </div>
             <div class="pre"><img src="<%= asset_path "left.png" %>" /></div>

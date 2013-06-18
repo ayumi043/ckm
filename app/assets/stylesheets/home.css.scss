@@ -132,7 +132,7 @@ color:#999;
     a{color:#1e1e1e;}
     ul{margin: 16px 0px 0px 16px;}
     li{
-      width: 257px; height: 31px; line-height: 31px;
+      height: 31px; line-height: 31px;
       background: url(vbs.png) no-repeat;
       padding-left: 40px;
       margin-bottom: 8px;
@@ -169,6 +169,8 @@ color:#999;
     }
   }
 }
+
+.pre,.next{cursor:pointer}
 
 
 .fc{

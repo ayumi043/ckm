@@ -13,4 +13,5 @@
 
 //= require ./admin/partners
 // require_tree ./admin/
+//= require home
 //= require_self
