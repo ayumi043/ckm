@@ -66,7 +66,7 @@
             <div class="txtz">
                 <ul> 
                     <% @zhaoshangs.each do |zhaoshang| %>
-                      <li><a href="/zs/<%= zhaoshang.id %>">[招商政策] - <%= zhaoshang.title %></a></li>
+                      <li><span class="view"><%= zhaoshang.view %></span><a href="/zs/<%= zhaoshang.id %>">[招商政策] - <%= zhaoshang.title %></a></li>
                     <% end %>
                 </ul>
             </div>

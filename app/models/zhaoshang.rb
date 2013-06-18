@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class Zhaoshang < ActiveRecord::Base
-  attr_accessible :title, :content, :ty_id, :state
+  attr_accessible :title, :content, :ty_id, :state, :view
 
   validates :title, :presence => { :message => "标题不能为空" }
 
