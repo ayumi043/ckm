@@ -17,8 +17,8 @@ $ ->
 	$("#about,#jiameng,#zs,#service").hover(
 	  -> 
 	  	$(this).stop().addClass("mhover").find(".moremenu").slideDown()
-	  	$(".mapwrap").css "z-index", "-1"  if !window.XMLHttpRequest
+	  	$(".map").css "z-index", "-1"  if !window.XMLHttpRequest
 	  -> 
 	  	$(this).stop().removeClass("mhover").find(".moremenu").slideUp()
-	  	$(".mapwrap").css "z-index", "99" if !window.XMLHttpRequest
+	  	$(".map").css "z-index", "99" if !window.XMLHttpRequest
 	)  
