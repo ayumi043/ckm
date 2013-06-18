@@ -10,6 +10,10 @@ $ ->
 		$(".ani").animate "margin-left": "0px"
 
 	$("#about,#jiameng,#zs,#service").hover(
-	  -> $(this).stop().find(".moremenu").slideDown()
-	  -> $(this).stop().find(".moremenu").slideUp()
+	  -> 
+	  	$(this).stop().addClass("mhover").find(".moremenu").slideDown()
+	  	$("#container").css "z-index", "-1"
+	  -> 
+	  	$(this).stop().removeClass("mhover").find(".moremenu").slideUp()
+	  	$("#container").css "z-index", "0"
 	)  
