@@ -1,0 +1,53 @@
+<div class="ckmnav">
+  您的位置：<a href="/">首页</a> > <a href="/service">项目与产品</a>
+</div>
+
+<div class="content clearfix">
+
+  <div class="nleft">
+    <h2 class="ntitle">加盟代理</h2>
+    <ul class="nul">
+      <% @jiamengs.each do |jiameng| %>
+      <li <%= raw "class='actived'" if params[:id] == jiameng.id.to_s %>><a href="/jiameng/<%= jiameng.id %>"><%= jiameng.title %></a></li>
+      <% end %>
+      <li <%= raw "class='actived'" if controller_name == "partners" %>><a href="/partners">盟友风采</a></li>
+      <li <%= raw "class='actived'" if controller_name == "shenqing" %> ><a href="/shenqing">申请加盟</a></li>
+    </ul>
+  </div>
+
+  <div class="nright">
+    
+    <div class="bc"><span class="ch">Services</span><span class="sch">项目与产品</span></div>
+    
+    <div class="wra" id="pshow">
+      
+      <div class="clearfix">
+        <div class="ckmpic">
+          <%= image_tag @partner.picture, :width => 284, :height => 162 %>
+        </div>
+        <div class="pname">
+          店名：<%= @partner.dianming %>
+        </div>
+        <div class="pname">
+          面积：<%= @partner.mianji %>
+        </div>
+        <div class="pname">
+          人数：<%= @partner.renshu %>
+        </div>
+        <div class="pname">
+          地区：<%= "#{@partner.region.parent.parent.region_name} #{@partner.region.parent.region_name} #{@partner.region.region_name}" %>
+        </div>
+        <div class="pname">
+          特色：<%= @partner.teshe %>
+        </div>
+       
+      </div>
+      <div class="pdesc clearfix" style="background:none;padding-top:0px;margin-top:20px;">
+        <%= raw @partner.description %>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

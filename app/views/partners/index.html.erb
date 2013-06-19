@@ -1,0 +1,47 @@
+<div class="ckmnav">
+  您的位置：<a href="/">首页</a> > <a href="/service">项目与产品</a>
+</div>
+
+<div class="content clearfix">
+
+  <div class="nleft">
+    <h2 class="ntitle">加盟代理</h2>
+    <ul class="nul">
+      <% @jiamengs.each do |jiameng| %>
+      <li <%= raw "class='actived'" if params[:id] == jiameng.id.to_s %>><a href="/jiameng/<%= jiameng.id %>"><%= jiameng.title %></a></li>
+      <% end %>
+      <li <%= raw "class='actived'" if controller_name == "partners" %>><a href="/partners">盟友风采</a></li>
+      <li <%= raw "class='actived'" if controller_name == "shenqing" %> ><a href="/shenqing">申请加盟</a></li>
+    </ul>
+  </div>
+
+  <div class="nright">
+    
+    <div class="bc"><span class="ch">Joining</span><span class="sch">加盟代理</span></div>
+    
+      <div class="wra service">
+      
+        <% @partners.in_groups_of(3, false) do |partners| %>
+        <ul>
+          <% partners.each do |partner| %>
+            <li>
+              <div class="ppi">
+                <a href="<%= partner_path(partner) %>"><img style="width: 195px;height:120px;" src="<%= partner.picture %>"></a>
+                <div class="caption">
+                  <%= link_to partner.name, partner_path(partner) %>
+                </div>
+              </div>
+            </li>
+            <% end %>
+        </ul>
+        <% end %> 
+
+        <div class="page">
+          <%= paginate @partners %>
+        </div>
+
+      </div>
+
+  </div>
+
+</div>

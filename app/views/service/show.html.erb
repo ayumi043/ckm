@@ -1,4 +1,4 @@
-<div class="">
+<div class="ckmnav">
   您的位置：<a href="/">首页</a> > <a href="/service">项目与产品</a>
 </div>
 
@@ -17,25 +17,18 @@
     
     <div class="bc"><span class="ch">Services</span><span class="sch">项目与产品</span></div>
     
-    <div class="wra service">
+    <div class="wra" id="pshow">
       
-      <% @products.in_groups_of(3, false) do |products| %>
-      <ul>
-        <% products.each do |product| %>
-          <li>
-            <div class="ppi">
-              <a href="<%= service_path(product) %>"><img style="width: 195px;height:120px;" src="<%= product.picture %>"></a>
-              <div class="caption">
-                <%= link_to product.prodname, service_path(product) %>
-              </div>
-            </div>
-          </li>
-          <% end %>
-      </ul>
-      <% end %> 
-
-      <div class="page">
-        <%= paginate @products %>
+      <div class="clearfix">
+        <div class="ckmpic">
+          <%= image_tag @product.picture, :width => 284, :height => 162 %>
+        </div>
+        <div class="pname">
+          产品名称：<%= @product.prodname %>
+        </div>
+      </div>
+      <div class="pdesc clearfix">
+        <%= raw @product.description %>
       </div>
 
     </div>

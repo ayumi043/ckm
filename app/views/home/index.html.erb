@@ -9,7 +9,7 @@
         var dataStatus = [];
          <% @agents.each do |agent|  %>
             dataStatus.push({ cha: '<%= agent[:cha] %>', name: '<%= agent[:name] %>', 
-                              des: '<%= raw agent[:desc] %>' });
+                              des: '<%= raw agent[:desc] %>', id: '<%= agent[:id] %>' });
          <% end %>
 
         $('#container').vectorMap({ map: 'china_zh',
@@ -17,14 +17,14 @@
             onLabelShow: function (event, label, code) {//动态显示内容
                 $.each(dataStatus, function (i, items) {
                     if (code == items.cha) {
-                        label.html( "<div style='padding:8px;min-width:120px;'><span style='color:#f60;font-size:12px;'>" + items.name + "</span>" + "<br>" + items.des
+                        label.html( "<div id=" + items.id + "style='padding:8px;min-width:120px;'><span style='color:#f60;font-size:12px;'>" + items.name + "</span>" + "<br>" + items.des
                              +"</div>"
                         );
                     }
                 });
             },
-            onRegionClick: function(){
-                window.location = "";
+            onRegionClick: function(event, code){
+                window.location = "/partners/code/" + code
             }
         });
 

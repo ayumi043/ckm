@@ -21,7 +21,9 @@ Ckm::Application.routes.draw do
   get 'about/(:id)' => 'abouts#show'
   # get 'about/(:id)' => 'abouts#show', :constraints => {:id => /[1-4]/}
 
-  resources :partners
+  resources :partners do
+    get 'code/(:id)' =>  "partners#code", :on => :collection
+  end
 
   namespace :admin do
     get 'showpartners/(:id)' => 'agents#get_partners'
