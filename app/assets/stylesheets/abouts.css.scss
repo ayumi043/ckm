@@ -54,14 +54,15 @@
 .span1{width: 650px; float: left; font-size: 13px;}
 .span2{width: 95px; float: right; color: #999;}
 
-.service{padding-left:3px !important;}
+.service{padding-left:3px !important;padding-top: 28px !important;}
 .service li{
   width:205px !important; float:left;
   height: auto !important;
   border: 0px !important;  
+  .caption{text-align: center;}
   .ppi{
     width:195px;
-    height:150px;
+    height:195px;
     overflow: hidden;
   }
 }
