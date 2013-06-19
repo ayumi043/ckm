@@ -6,6 +6,7 @@ Ckm::Application.routes.draw do
 
   mount UeditorRails::Engine => '/ueditor'
 
+  get "service/category/:id/(page/:page)" => "service#category", :as => :category
   resources :service
   resources :downloads
   get "contact" => "contact#index"
