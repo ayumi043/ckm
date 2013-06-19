@@ -5,7 +5,7 @@
 <div class="content clearfix">
 
   <div class="nleft">
-    <h2 class="ntitle">项目与产品</h2>
+    <h2 class="ntitle">项目x与产品</h2>
     <ul class="nul">
       <% @categories.each do |category| %>
       <li <%= raw "class='actived'" if params[:id] == category.id.to_s %>><a href="/service/category/<%= category.id %>"><%= category.name %></a></li>
