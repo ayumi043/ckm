@@ -24,7 +24,7 @@
         <% products.each do |product| %>
           <li>
             <div class="ppi">
-              <img style="width: 195px;height:120px;" src="<%= product.picture %>">
+              <a href="<%= service_path(product) %>"><img style="width: 195px;height:120px;" src="<%= product.picture %>"></a>
               <div class="caption">
                 <%= link_to product.prodname, service_path(product) %>
               </div>
