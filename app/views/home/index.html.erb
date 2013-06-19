@@ -85,9 +85,8 @@
                 <ul class="ani clearfix">
                     <% @products.each do |product| %>
                     <li>
-                        <div class="name"><%= link_to product.prodname, admin_product_path(product) %></div>
-                        <img width="284" height="162" src="<%= product.picture %>">                      
-                      
+                        <div class="name"><%= link_to product.prodname, service_path(product) %></div>
+                        <%= link_to image_tag(product.picture, :width => 284, :height => 162), service_path(product) %>                   
                     </li>
                     <% end %>
                 </ul> 
