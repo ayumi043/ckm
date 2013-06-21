@@ -99,7 +99,7 @@
 
     <div class="ri">
         <div class="video">
-            <embed src="<%= @indexsets.at(1).url %>" allowFullScreen="true" quality="high" width="290" height="220" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+            <embed src="<%= @indexsets.at(1).url %>" allowFullScreen="true" quality="high" width="290" height="220" align="middle" allowScriptAccess="always" wmode="transparent" type="application/x-shockwave-flash"></embed>
         </div>
 
         <div class="vs">
@@ -243,7 +243,6 @@ ad.style.top = curTop + (ad.DirV ? 1 : -1) + "px";
 </script> 
 
 <script> 
-// Rimifon.NewFloatAd("http://www.jb51.net/images/logo.gif", "http://www.baidu.com"); 
 var ad = Rimifon.NewFloatAd("<%= "#{root_url}assets/building.jpg/" %>"); 
 ad.style.left = 500; 
 ad.style.top = 456; 
