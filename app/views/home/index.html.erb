@@ -33,7 +33,7 @@
         $('#container').vectorMap('set', 'colors', {GUI: "#4a9fc5"});
 
         $.each(dataStatus, function (i, items) {
-            if (items.des.indexOf('个') != -1) {//动态设定颜色，此处用了自定义简单的判断
+            if (items.des.length > 0 ) {//动态设定颜色，此处用了自定义简单的判断
                 var josnStr = "{" + items.cha + ":'#00FF00'}";
                 $('#container').vectorMap('set', 'colors', eval('(' + josnStr + ')'));
             }
