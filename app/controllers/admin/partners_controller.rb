@@ -3,7 +3,7 @@
 class Admin::PartnersController < Admin::ApplicationController
 
   def index
-    @partners = Partner.all
+    @partners = Partner.order("recommended desc")
 
     respond_to do |format|
       format.html # index.html.erb

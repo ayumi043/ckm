@@ -21,17 +21,17 @@
               <thead>
                   <tr>
                       <td width="55">图片</td>
-                      <td>模块名称</td>
+                      <td width="85">模块名称</td>
                       <th>标题</th>
-                      <td width="300" style="overflow: hidden;">url</td>
-                      <th width="140">操作</th>
+                      <td style="overflow: hidden;">url</td>
+                      <th width="120">操作</th>
                   </tr>
               </thead>
               <tbody>
 
                 <% @indexsets.each do |indexset| %>
                   <tr>
-                    <td><%= image_tag(indexset.picture, {:width => "50", :height => "50"}) %></td>
+                    <td><div style="width:50px;overflow:hidden;"><%= image_tag(indexset.picture, {:width => "50", :height => "50"}) %></div></td>
                     <td><%= indexset.module %></td>
                     <td><%= indexset.title %></td>
                     <td><%= indexset.url %></td>

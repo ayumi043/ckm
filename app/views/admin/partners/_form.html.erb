@@ -38,6 +38,11 @@
     <%= f.text_field :dianming %>
     <span style="color:#f60;"><%= "#{errors[:dianming].first}" if errors[:dianming] %></span>
 
+    <%= f.label :推荐到首页 %><br />
+    推荐:<%= f.check_box :recommended, :checked => true %>
+    <span style="color:#f60;"><%= "#{errors[:recommended].first}" if errors[:recommended] %></span>
+
+
     <%= f.label :图片 %>
     <%= f.file_field :picture %>
     <span style="color:#f60;"><%= "#{errors[:picture].first}" if errors[:picture] %></span>

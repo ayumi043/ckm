@@ -19,13 +19,12 @@
           <table class="table table-striped">
               <thead>
                   <tr>
-                      <th>缩略图</th>
+                      <th width="66">缩略图</th>
                       <th>盟友名称</th>
-                      <th>店名</th>
-                      <th>面积</th>
-                      <th>员工人数</th>
-                      <th>特色项目</th>
+                      <th width="60">面积</th>
+                      <th width="60">员工人数</th>
                       <th width="180">地区</th>
+                      <th width="50">推荐</th>
                       <th width="180">操作</th>
                   </tr>
               </thead>
@@ -34,14 +33,13 @@
                 <% @partners.each do |partner| %>
                   <tr>
                     <td>
-                      <img style="width: 80px; height: 60px;" src="<%= partner.picture %>">
+                      <div style="overflow:hidden;width:60px;"><img style="width: 60px; height: 60px;" src="<%= partner.picture %>"></div>
                     </td>
                     <td><%= partner.name %></td>
-                    <td><%= partner.dianming %></td>
                     <td><%= partner.mianji %></td>
                     <td><%= partner.renshu %></td>
-                    <td><%= partner.teshe %></td>
                     <td><%= "#{partner.region.parent.parent.region_name} #{partner.region.parent.region_name} #{partner.region.region_name}" %></td>
+                    <td><%= partner.recommended_name %></td>
                     <td>
                         <a href="<%= admin_partner_path(partner) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
                         <a href="<%= edit_admin_partner_path(partner) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>

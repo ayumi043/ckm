@@ -18,9 +18,6 @@ class Article < ActiveRecord::Base
   end    
     
   def state_name=(name)    
-    # split = name.split(' ', 2)    
-    # self.first_name = split.first    
-    # self.last_name = split.last    
   end 
 
 end
