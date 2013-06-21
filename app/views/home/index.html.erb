@@ -159,6 +159,10 @@
     <img src="/assets/s2.jpg">
     <div class="clos">关闭</div>
 </div>
+    
+<div class="online">
+
+</div>
 
 <script> 
 
@@ -227,6 +231,12 @@ ad.style.top = curTop + (ad.DirV ? 1 : -1) + "px";
     $(function(){
         $(".clos").click(function(){
             $(".ad1,.ad2").hide();
+        });
+        $(window).bind("scroll", function(){
+            if (!window.XMLHttpRequest) {
+                var st = $(document).scrollTop(), winh = $(window).height();
+                $(".online").css("top", st + winh - 30);    
+            }
         });
     });
 
