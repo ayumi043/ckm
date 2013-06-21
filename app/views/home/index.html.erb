@@ -165,6 +165,8 @@
     <a href="http://wpa.qq.com/msgrd?v=3&uin=2640246256&site=qq&menu=yes">客户服务</a>
     <a href="http://wpa.qq.com/msgrd?v=3&uin=1684114297&site=qq&menu=yes">技术支持</a>
     <a href="http://wpa.qq.com/msgrd?v=3&uin=675656599&site=qq&menu=yes">投诉受理</a>
+
+    <div class="gotop">Top</div>
 </div>
 
 <script> 
@@ -240,6 +242,9 @@ ad.style.top = curTop + (ad.DirV ? 1 : -1) + "px";
                 var st = $(document).scrollTop(), winh = $(window).height();
                 $(".online").css("top", st + winh - 320);    
             }
+        });
+        $(".gotop").click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 120);
         });
     });
 

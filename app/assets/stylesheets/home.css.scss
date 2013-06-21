@@ -253,10 +253,11 @@ color:#999;
 .clos{position:absolute;left: 5px;top: 8px;color:#fff;cursor: pointer;}
 
 .online{background:url(qq.gif) no-repeat;width:114px;
-  height:237px;position:fixed; _position: absolute;z-index: 99999999;right:2px;bottom:20px;
+  height:257px;position:fixed; _position: absolute;z-index: 99999999;right:2px;bottom:20px;
   padding-top: 20px;
 }
 .online a{display: block;height: 30px;line-height: 30px;color:#fff; text-align: center;}
+.gotop{position: absolute; bottom: 10px; text-align: center; color:#fff; font-weight: bold;width: 110px;cursor: pointer;}
 
 /**/
 .clearfix {
