@@ -14,7 +14,6 @@
       <div class="alert alert-error">
         <button class="close" data-dismiss="alert">&times;</button>
         <strong>错误!</strong> 
-        <span>发生了<%= pluralize(@product.errors.count, "") %>个错误！</span>
         <ul>
         <% @product.errors.messages.each do |msg| %>
           <li><%= msg.last.first %></li>
@@ -31,6 +30,12 @@
     <%= f.label :产品名称 %>
     <span><input type="text" name="product[prodname]" value="<%= @product.prodname %>" /></span>
     <span style="color:#f60;"><%= errors[:prodname].first if errors[:prodname] %></span>
+  </div>
+
+  <div class="field">
+    <%= f.label :推荐到首页 %><br />
+    推荐:<%= f.check_box :recommended, :checked => true %>
+    <span style="color:#f60;"><%= "#{errors[:recommended].first}" if errors[:recommended] %></span>
   </div>
 
   <div class="field">

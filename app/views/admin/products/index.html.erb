@@ -32,6 +32,7 @@
                 <div class="caption">
                   <h4><%= link_to product.prodname, admin_product_path(product) %></h4>
                   <p>
+                    <a><%= product.recommended_name %></a>
                     <a href="<%= edit_admin_product_path(product) %>
                       " class="btn btn-primary"> <i class="icon-pencil icon-white"></i>
                       编辑

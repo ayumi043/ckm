@@ -3,6 +3,7 @@
 class PartnersController < ApplicationController
 
   def index
+    @regions_root = Region.where(:parent_id => nil)
     @partners = Partner.page(params[:page]).per(20) 
   end
 
@@ -15,7 +16,11 @@ class PartnersController < ApplicationController
   end
 
   def code
-    @partners = Partner.find(params[:id])
+    @regions_root = Region.where(:parent_id => nil)
+    @region = Region.where(:cha => params[:code]).first
+    @partners = Partner.where(
+      :region_id => @region.leaves.map {|i| i.id }
+    ).page(params[:page]).per(20) 
     render 'index'
   end
 

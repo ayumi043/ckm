@@ -104,7 +104,7 @@
                             
                         </li>
                         <li 
-        class="dropdown-submenu<% if controller_name == "partners" || controller_name == "shenqings" then %> active<% end %>">
+        class="dropdown-submenu<% if controller_name == "partners" then %> active<% end %>">
                             <a href="/admin/partners"><i class="icon-chevron-right"></i> 加盟代理</a>
                             <ul class="dropdown-menu">
                                 <li><a href="/admin/jiamengs">加盟概要</a></li>
@@ -112,7 +112,7 @@
                                     <a href="/admin/partners">盟友列表</a>
                                 </li>
                                 <li>
-                                    <a href="/admin/shenqings">申请加盟</a>
+                                    <a href="/admin/shenqings">在线申请</a>
                                 </li>
                             </ul>
 
@@ -121,7 +121,7 @@
                             <a href="/admin/zhaoshangs">招商政策</a>
                         </li>
                         <li
-        class="dropdown-submenu<% if controller_name == "shops" then %> active<% end %>">
+        class="dropdown-submenu<% if controller_name == "shops" || controller_name == "shenqings"  then %> active<% end %>">
                             <a href="/admin/shops"><i class="icon-chevron-right"></i> 我要开店</a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -129,6 +129,9 @@
                                 </li>
                                 <li>
                                     <a href="/admin/partners">店家列表</a>
+                                </li>
+                                <li>
+                                    <a href="/admin/shenqings">在线申请</a>
                                 </li>
                             </ul>
                         </li>
@@ -149,7 +152,7 @@
                             <a href="/admin/products"><i class="icon-chevron-right"></i> 产品与项目</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/admin/products/new">添加产品</a>
+                                    <a href="/admin/products">产品列表</a>
                                 </li>
                                 <li>
                                     <a href="/admin/categories">产品系列</a>

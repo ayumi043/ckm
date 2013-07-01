@@ -31,6 +31,7 @@
 .nright{
   float: left;
   width: 830px;
+  overflow: hidden;
   .bc{height:40px;background:#f4f4f4; line-height:40px;}
   .wra{
     padding-left:20px;
@@ -84,3 +85,7 @@
   float:left;width:284px;
 }
 #pshow{padding:25px 20px 20px 20px;}
+
+.ckmregion{font-size:14px;padding:0px 0px 0px 8px; height: 80px;}
+.ckmregion span{float: left; width: 70px; }
+.ckmregion .sele a{color:#f60;font-weight:bold;}

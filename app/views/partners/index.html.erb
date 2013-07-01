@@ -22,9 +22,16 @@
     <div class="bc"><span class="ch">Joining</span><span class="sch">加盟代理</span></div>
     
       <div class="wra service">
+
+        <div class="ckmregion">
+          <span <%= raw "class='sele'" unless params[:code] %> ><a href="/partners">所有地区</a></span>
+          <% @regions_root.each do |region| %>
+          <span <%= raw "class='sele'" if params[:code] == region.cha %> ><%= link_to region.region_name, "/partners/code/#{region.cha}" %></span>
+          <% end %>
+        </div>
       
         <% @partners.in_groups_of(3, false) do |partners| %>
-        <ul>
+        <ul class="clearfix">
           <% partners.each do |partner| %>
             <li>
               <div class="ppi">

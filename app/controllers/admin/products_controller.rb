@@ -4,7 +4,7 @@ class Admin::ProductsController < Admin::ApplicationController
   layout "admin"
 
   def index
-    @products = Product.all
+    @products = Product.order("recommended desc")
 
     respond_to do |format|
       format.html 
@@ -34,7 +34,7 @@ class Admin::ProductsController < Admin::ApplicationController
   def create
     @product = Product.new(params[:product])
     @product.date = Time.now
-    @product.picture = uploadFile(params[:product]["picture"])    
+    @product.picture = uploadFile(params[:product]["picture"]) if params[:product]["picture"]   
 
     respond_to do |format|
       if @product.save

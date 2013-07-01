@@ -34,7 +34,7 @@
         $('#container').vectorMap('set', 'colors', {GUI: "#4a9fc5"});
 
         $.each(dataStatus, function (i, items) {
-            if (items.des.indexOf('个') != -1) {//动态设定颜色，此处用了自定义简单的判断
+            if (items.des.length > 0 ) {//动态设定颜色，此处用了自定义简单的判断
                 var josnStr = "{" + items.cha + ":'#00FF00'}";
                 $('#container').vectorMap('set', 'colors', eval('(' + josnStr + ')'));
             }
@@ -100,7 +100,7 @@
 
     <div class="ri">
         <div class="video">
-            <embed src="<%= @indexsets.at(1).url %>" allowFullScreen="true" quality="high" width="290" height="220" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+            <embed src="<%= @indexsets.at(1).url %>" allowFullScreen="true" quality="high" width="290" height="220" align="middle" allowScriptAccess="always" wmode="transparent" type="application/x-shockwave-flash"></embed>
         </div>
 
         <div class="vs">
@@ -159,6 +159,15 @@
 <div class="ad2">
     <img src="/assets/s2.jpg">
     <div class="clos">关闭</div>
+</div>
+    
+<div class="online">
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=1780189529&site=qq&menu=yes">加盟咨询</a>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=2640246256&site=qq&menu=yes">客户服务</a>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=1684114297&site=qq&menu=yes">技术支持</a>
+    <a href="http://wpa.qq.com/msgrd?v=3&uin=675656599&site=qq&menu=yes">投诉受理</a>
+
+    <div class="gotop">Top</div>
 </div>
 
 <script> 
@@ -229,12 +238,20 @@ ad.style.top = curTop + (ad.DirV ? 1 : -1) + "px";
         $(".clos").click(function(){
             $(".ad1,.ad2").hide();
         });
+        $(window).bind("scroll", function(){
+            if (!window.XMLHttpRequest) {
+                var st = $(document).scrollTop(), winh = $(window).height();
+                $(".online").css("top", st + winh - 320);    
+            }
+        });
+        $(".gotop").click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 120);
+        });
     });
 
 </script> 
 
 <script> 
-// Rimifon.NewFloatAd("http://www.jb51.net/images/logo.gif", "http://www.baidu.com"); 
 var ad = Rimifon.NewFloatAd("<%= "#{root_url}assets/building.jpg/" %>"); 
 ad.style.left = 500; 
 ad.style.top = 456; 
