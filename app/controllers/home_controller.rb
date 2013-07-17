@@ -20,7 +20,7 @@ class HomeController < ApplicationController
       }  
     }
 
-    @products = Product.order("recommended desc").first(4)
+    @products = Product.order("recommended desc").first(3)
     @zhaoshangs = Zhaoshang.where(:ty_id => 14)
     @partners = Partner.order("recommended desc").first(5)
     @indexsets = Indexset.all

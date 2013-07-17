@@ -130,11 +130,36 @@
         </div>
 
     </div>
+
+    <div class="clearfix">
+        <div class="title">
+            <span class="hh"><a href="/service">服务项目</a></span>
+            <span class="more"><a href="/service"> >>更多</a></span>
+        </div>
+        <div class="box" id="product">
+
+            <div class="sm">
+                <%= @indexsets.last.title %>
+            </div>
+            <div class="tp clearfix">
+                <ul class="ani clearfix">
+                    <% @products.each do |product| %>
+                    <li>
+                        <div class="name"><%= link_to product.prodname, service_path(product) %></div>
+                        <%= link_to image_tag(product.picture, :width => 284, :height => 162), service_path(product) %>                   
+                    </li>
+                    <% end %>
+                </ul> 
+            </div>
+        </div>
+    </div>
+
+
 </div>
 <div class="content clearfix">
     <div class="le">
         <div class="title" id="pro">
-            <span class="hh"><a href="/service">服务项目</a></span>
+            <span class="hh"><a href="/service">产品展示</a></span>
             <span class="more"><a href="/service"> >>更多</a></span>
         </div>
         <div class="box" id="services">
@@ -161,6 +186,8 @@
     <div class="ri">
 
         <div class="vs">
+
+
             <div class="vbs">极速快修</div>
             <img height="166" width="272" style="margin:8px;" src="<%= @indexsets.at(6).picture %>" />
         </div>
