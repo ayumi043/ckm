@@ -1,0 +1,48 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_friendlinks_path %>">友情连接</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @friendlink.web_name %></li> 
+<% end %>
+
+
+<%= form_for [:admin, @friendlink] do |f| %>
+
+  <% if @friendlink.errors.any? %>
+    <div id="error_explanation">
+      
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">&times;</button>
+        <strong>错误!</strong> 
+        <span>发生了<%= pluralize(@friendlink.errors.count, "") %>个错误！</span>
+        <ul>
+        <% @friendlink.errors.messages.each do |msg| %>
+          <li><%= msg.last.first %></li>
+        <% end %>
+        </ul>
+      </div>
+
+    </div>
+  <% end %>
+
+  <% errors = @friendlink.errors.messages %>
+
+  <div class="field">
+    <span>
+      <%= f.label :名称 %>
+      <input type="text" name="friendlink[web_name]" value="<%= @friendlink.web_name %>" />
+    </span>
+    <span style="color:#f60;"><%= "#{errors[:web_name].first}" if errors[:web_name] %></span>
+  </div>  
+
+  <div class="field">
+    <%= f.label :网址 %>
+    <%= f.text_field :url %>网址请于http开头!
+    <span style="color:#f60;"><%= "#{errors[:url].first}" if errors[:url] %></span>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "确 定" %>
+  </div>
+<% end %>

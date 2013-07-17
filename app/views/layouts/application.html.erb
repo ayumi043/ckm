@@ -52,7 +52,7 @@
             <% end %>
           <div>
         </li>
-        <li>车快美学苑</li>
+        <li>汽车养护论坛</li>
         <li <%= current_menu("downloads") %>><a href="/downloads">下载中心</a></li>
         <li <%= current_menu("contact") %>><a href="/contact">联系我们</a></li>
       </ul>
@@ -60,6 +60,19 @@
   </div>
 
   <%= yield %>
+
+  <div class="flink clearfix">
+      <div>
+          <span>友情连接</span>
+      </div>
+      <div id="flink" class="clearfix">
+         
+        <% @friendlinks.each do |friendlink| %>
+          <%= link_to friendlink.web_name, friendlink.url, target: "_blank" %>
+        <% end %>
+
+      </div>
+  </div>
 
   <div class="footer clearfix">
     <div class="cc">
@@ -83,6 +96,9 @@
     </div>
     <div>
       版权所有 Copyright ©2013 厦门车快美汽车服务有限公司
+    </div>
+    <div>
+      <script src="http://s15.cnzz.com/stat.php?id=5530820&web_id=5530820&show=pic" language="JavaScript"></script>
     </div>
   </div>
 </body>
