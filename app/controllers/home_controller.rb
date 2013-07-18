@@ -25,7 +25,7 @@ class HomeController < ApplicationController
     @zhaoshangs = Zhaoshang.where(:ty_id => 14)
     @partners = Partner.order("recommended desc").first(5)
     @indexsets = Indexset.all
-    @allnews = Article.where(:ty_id => 23).order("recommended desc").first(7)
+    @allnews = Article.where(:ty_id => 23).order("recommended desc").order("pulishdate desc").first(7)
   end
 
 end
