@@ -1,9 +1,9 @@
 $ ->
 	$(".next").click ->
-		$(".ani").animate "margin-left": (-336 * 2) + "px"
+		$("#services .ani").animate "margin-left": (-336 * 2) + "px"
 
 	$(".pre").click ->
-		$(".ani").animate "margin-left": "0px"
+		$("#services .ani").animate "margin-left": "0px"
 
 	$(".menu li").hover(
 	  -> $(this).addClass("mhover")

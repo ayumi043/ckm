@@ -20,10 +20,12 @@ class HomeController < ApplicationController
       }  
     }
 
-    @products = Product.order("recommended desc").first(3)
+    @services = Product.where(:category_id => 5).order("recommended desc").first(3)
+    @products = Product.where(:category_id => 1).order("recommended desc").first(4)
     @zhaoshangs = Zhaoshang.where(:ty_id => 14)
     @partners = Partner.order("recommended desc").first(5)
     @indexsets = Indexset.all
+    @allnews = Article.where(:ty_id => 23).order("recommended desc").first(7)
   end
 
 end

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 class Indexset < ActiveRecord::Base
   attr_accessible :module, :title, :picture, :url
 

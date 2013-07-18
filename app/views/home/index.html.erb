@@ -62,12 +62,12 @@
         </div>
         <div class="box">
             <div class="focus">
-                <img width="305" height="183" src="<%= @indexsets.first.picture %>" />
+                <img width="305" height="183" src="<%= @indexsets.last.picture %>" />
             </div>
             <div class="txtz">
                 <ul> 
-                    <% @zhaoshangs.each do |zhaoshang| %>
-                      <li><span class="view"><%= zhaoshang.view %></span><a href="/zs/<%= zhaoshang.id %>">[招商政策] - <%= zhaoshang.title %></a></li>
+                    <% @allnews.each do |news| %>
+                      <li><span class="view1"><%= news.pulishdate.strftime('%F %R') %></span><a href="/zs/<%= news.id %>"><%= news.title %></a></li>
                     <% end %>
                 </ul>
             </div>
@@ -132,7 +132,7 @@
     </div>
 
     <div class="clearfix">
-        <div class="title">
+        <div class="title" style="margin-top:15px;">
             <span class="hh"><a href="/service">服务项目</a></span>
             <span class="more"><a href="/service"> >>更多</a></span>
         </div>
@@ -143,7 +143,7 @@
             </div>
             <div class="tp clearfix">
                 <ul class="ani clearfix">
-                    <% @products.each do |product| %>
+                    <% @services.each do |product| %>
                     <li>
                         <div class="name"><%= link_to product.prodname, service_path(product) %></div>
                         <%= link_to image_tag(product.picture, :width => 284, :height => 162), service_path(product) %>                   
