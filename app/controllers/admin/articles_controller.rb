@@ -4,7 +4,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   layout "admin"
 
   def index
-    @articles = Article.where(:ty_id => 23)
+    @articles = Article.where(:ty_id => 23).order("recommended desc").order("pulishdate desc")
 
     respond_to do |format|
       format.html # index.html.erb

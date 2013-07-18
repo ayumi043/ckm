@@ -37,6 +37,11 @@
   </div>
 
   <div class="field">
+    推荐到首页:<%= f.check_box :recommended, :checked => true %>
+    <span style="color:#f60;"><%= "#{errors[:recommended].first}" if errors[:recommended] %></span>
+  </div>
+
+  <div class="field">
     状态：<%= f.check_box :state, :checked => true %>启用
   </div>
 

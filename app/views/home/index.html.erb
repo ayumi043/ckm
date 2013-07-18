@@ -67,7 +67,7 @@
             <div class="txtz">
                 <ul> 
                     <% @allnews.each do |news| %>
-                      <li><span class="view1"><%= news.pulishdate.strftime('%F %R') %></span><a href="/zs/<%= news.id %>"><%= news.title %></a></li>
+                      <li><span class="view1"><%= news.pulishdate.strftime(("%Y-%m-%d")) %></span><a href="/zs/<%= news.id %>"><%= news.title %></a></li>
                     <% end %>
                 </ul>
             </div>

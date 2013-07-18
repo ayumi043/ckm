@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 class Article < ActiveRecord::Base
-  attr_accessible :title, :content, :ty_id, :state
+  attr_accessible :title, :content, :ty_id, :state, :recommended
 
   validates :title, :presence => { :message => "新闻标题不能为空" }
 
@@ -19,5 +19,18 @@ class Article < ActiveRecord::Base
     
   def state_name=(name)    
   end 
+
+  def recommended_name    
+    re = nil
+    if self.recommended == 1
+      re = "推荐"
+    else
+      re = "未推荐"    
+    end
+    re 
+  end    
+    
+  def recommended_name=(name)    
+  end
 
 end

@@ -28,7 +28,7 @@
 
                 <% @articles.each do |article| %>
                   <tr>
-                    <td><%= article.title %></td>
+                    <td>[<%= article.recommended_name %>]<%= article.title %></td>
                     <td><%= article.state_name %></td>
                     <td>
                       <a href="<%= admin_article_path(article) %>" class="btn btn-mini"><i class="icon-eye-open"></i> 浏览</a>
