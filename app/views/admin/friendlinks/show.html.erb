@@ -1,0 +1,21 @@
+<% if  notice %>
+	<div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4>操作提示</h4>
+  	<%= notice %>
+	</div>
+<% end %>
+
+<p>
+  <b>新闻标题:</b>
+  <%= @download.title %>
+</p>
+
+<p>
+  <b>新闻内容:</b>
+  <%= raw @download.content %>
+</p>
+
+
+<%= link_to '编辑', edit_admin_download_path(@download) %> |
+<%= link_to '返回', admin_downloads_path %>

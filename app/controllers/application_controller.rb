@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     @jiamengs = Jiameng.where(:ty_id => 5)
     @zhaoshangs = Zhaoshang.where(:ty_id => 14)
     @categories = Category.all
+    @friendlinks = Friendlink.all
   end
 
   def uploadFile(file)   

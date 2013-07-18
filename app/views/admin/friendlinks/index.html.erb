@@ -1,0 +1,47 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_friendlinks_path %>">友情链接</a>
+  </li> 
+<% end %>
+
+<div class="row-fluid">
+
+  <div>
+     <a href="<%= new_admin_friendlink_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加友情链接</a>
+  </div>
+
+  <!-- block -->
+  <div class="block">
+      <div class="navbar navbar-inner block-header">
+          <div class="muted pull-left">友情链接</div>         
+      </div>
+      <div class="block-content collapse in">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>网址名称</th>
+                      <th width="450">网址</th>
+                      <th width="190">操作</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                <% @friendlinks.each do |friendlink| %>
+                  <tr>
+                    <td><%= friendlink.web_name %></td>
+                    <td><%= friendlink.url %></td>
+                    <td>
+                        <a href="<%= edit_admin_friendlink_path(friendlink) %>" class="btn btn-primary btn-mini"><i class="icon-pencil icon-white"></i> 编辑</a>
+                        &nbsp;&nbsp;
+                        <a href="<%= admin_friendlink_path(friendlink) %>" rel="nofollow" data-method="delete" data-confirm="确定要删除吗？" class="btn btn-danger btn-mini"><i class="icon-remove icon-white"></i> 删除</a>
+
+                    </td>                   
+                  </tr>
+                <% end %>
+              
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <!-- /block -->
+</div>  

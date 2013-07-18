@@ -1,3 +1,4 @@
+<% title "首页 - 厦门车快美汽车服务有限公司" %>
 <% content_for :head do %>
 <link href="/resource/jquery.vector-map.css" rel="stylesheet" type="text/css" />
 <script src="/resource/jquery.vector-map.js" type="text/javascript"></script>
@@ -56,8 +57,8 @@
 <div class="content clearfix">
     <div class="le">
         <div class="title">
-            <span class="hh"><a href="/zs">招商政策</a></span>
-            <span class="more"><a href="/zs"> >>更多</a></span>
+            <span class="hh"><a href="/news">企业新闻</a></span>
+            <span class="more"><a href="/news"> >>更多</a></span>
         </div>
         <div class="box">
             <div class="focus">
@@ -71,36 +72,35 @@
                 </ul>
             </div>
         </div>
-
-        <div class="title" id="pro">
-            <span class="hh"><a href="/service">服务项目</a></span>
-            <span class="more"><a href="/service"> >>更多</a></span>
-        </div>
-        <div class="box" id="services">
-
-            <div class="sm">
-                <%= @indexsets.last.title %>
-            </div>
-            <div class="tp clearfix">
-                <ul class="ani clearfix">
-                    <% @products.each do |product| %>
-                    <li>
-                        <div class="name"><%= link_to product.prodname, service_path(product) %></div>
-                        <%= link_to image_tag(product.picture, :width => 284, :height => 162), service_path(product) %>                   
-                    </li>
-                    <% end %>
-                </ul> 
-            </div>
-            <div class="pre"><img src="<%= asset_path "left.png" %>" /></div>
-            <div class="next"><img src="<%= asset_path "right.png" %>" /></div>
-        </div>
-
     </div>
 
     <div class="ri">
         <div class="video">
-            <embed src="<%= @indexsets.at(1).url %>" allowFullScreen="true" quality="high" width="290" height="220" align="middle" allowScriptAccess="always" wmode="transparent" type="application/x-shockwave-flash"></embed>
+            <embed src="<%= @indexsets.at(1).url %>" allowFullScreen="true" quality="high" width="290" height="230" align="middle" allowScriptAccess="always" wmode="transparent" type="application/x-shockwave-flash"></embed>
         </div>
+    </div>
+</div>
+
+<div class="content clearfix">
+    <div class="le">
+        <div class="title">
+            <span class="hh"><a href="/zs">招商政策</a></span>
+            <span class="more"><a href="/zs"> >>更多</a></span>
+        </div>
+        <div class="box">
+            <div class="txtz">
+                <ul> 
+                    <% @zhaoshangs.each do |zhaoshang| %>
+                      <li><span class="view"><%= zhaoshang.view %></span><a href="/zs/<%= zhaoshang.id %>">[招商政策] - <%= zhaoshang.title %></a></li>
+                    <% end %>
+                </ul>
+            </div>
+            <div class="focus">
+                <img width="305" height="183" src="<%= @indexsets.first.picture %>" />
+            </div>
+        </div>
+    </div>
+    <div class="ri">
 
         <div class="vs">
             <div class="vbs">加盟代理</div>
@@ -127,11 +127,73 @@
                 </li>
             </ul>
 
+        </div>
+
+    </div>
+
+    <div class="clearfix">
+        <div class="title">
+            <span class="hh"><a href="/service">服务项目</a></span>
+            <span class="more"><a href="/service"> >>更多</a></span>
+        </div>
+        <div class="box" id="product">
+
+            <div class="sm">
+                <%= @indexsets.last.title %>
+            </div>
+            <div class="tp clearfix">
+                <ul class="ani clearfix">
+                    <% @products.each do |product| %>
+                    <li>
+                        <div class="name"><%= link_to product.prodname, service_path(product) %></div>
+                        <%= link_to image_tag(product.picture, :width => 284, :height => 162), service_path(product) %>                   
+                    </li>
+                    <% end %>
+                </ul> 
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div class="content clearfix">
+    <div class="le">
+        <div class="title" id="pro">
+            <span class="hh"><a href="/service">产品展示</a></span>
+            <span class="more"><a href="/service"> >>更多</a></span>
+        </div>
+        <div class="box" id="services">
+
+            <div class="sm">
+                <%= @indexsets.last.title %>
+            </div>
+            <div class="tp clearfix">
+                <ul class="ani clearfix">
+                    <% @products.each do |product| %>
+                    <li>
+                        <div class="name"><%= link_to product.prodname, service_path(product) %></div>
+                        <%= link_to image_tag(product.picture, :width => 284, :height => 162), service_path(product) %>                   
+                    </li>
+                    <% end %>
+                </ul> 
+            </div>
+            <div class="pre"><img src="<%= asset_path "left.png" %>" /></div>
+            <div class="next"><img src="<%= asset_path "right.png" %>" /></div>
+        </div>
+
+    </div>
+
+    <div class="ri">
+
+        <div class="vs">
+
+
             <div class="vbs">极速快修</div>
             <img height="166" width="272" style="margin:8px;" src="<%= @indexsets.at(6).picture %>" />
         </div>
 
     </div>
+
 
     <div class="fc clearfix">
         <div class="title" id="pro">
