@@ -19,26 +19,30 @@
 
   <% errors = @indexset.errors.messages %>
 
+  <br />
   <div class="field">
-    <%= f.label :模块名称 %><br />
+    <%= f.label :模块名称 %>
     <span><input type="text" name="indexset[module]" value="<%= @indexset.module %>" /></span>
     <span style="color:#f60;"><%= errors[:module].first if errors[:module] %></span>
   </div>
 
+  <br />
   <div class="field">
-    <%= f.label :标题 %><br />
+    <%= f.label :标题 %>
     <%= f.text_field :title %>
     <span style="color:#f60;"><%= errors[:title].first if errors[:title] %></span>
   </div>
 
+  <br />
   <div class="field">
-    <%= f.label :图片 %><br />
+    <%= f.label :图片 %>
     <%= f.file_field :picture %>
     <span style="color:#f60;"><%= "#{errors[:picture].first}" if errors[:picture] %></span>
   </div>
 
+  <br />
   <div class="field">
-    <%= f.label :链接地址 %><br />
+    <%= f.label :链接地址 %>
     <%= f.text_field :url %>
     <span style="color:#f60;"><%= "#{errors[:url].first}" if errors[:url] %></span>
   </div>
