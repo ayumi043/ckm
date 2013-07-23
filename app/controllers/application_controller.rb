@@ -9,10 +9,12 @@ class ApplicationController < ActionController::Base
     @zhaoshangs = Zhaoshang.where(:ty_id => 14)
     @categories = Category.all
     @friendlinks = Friendlink.all
+    pv = Pv.first
+    @pv = pv.count
+    pv.update_attribute(:count, @pv + 1)
   end
 
   def uploadFile(file)   
-
     if !file.original_filename.empty?
       filename=getFileName(file.original_filename)
       file_dirname = "#{Rails.root}/public/upload/#{Time.now.strftime("%Y%m%d")}"

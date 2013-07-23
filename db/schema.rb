@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130611155956) do
+ActiveRecord::Schema.define(:version => 20130723030857) do
 
   create_table "admin", :force => true do |t|
     t.string   "email",       :limit => 50,  :null => false
@@ -34,13 +34,14 @@ ActiveRecord::Schema.define(:version => 20130611155956) do
   end
 
   create_table "article", :force => true do |t|
-    t.string   "title",       :limit => 50,       :null => false
-    t.text     "content",     :limit => 16777215, :null => false
-    t.datetime "pulishdate",                      :null => false
-    t.integer  "ty_id",                           :null => false
+    t.string   "title",       :limit => 50,                       :null => false
+    t.text     "content",     :limit => 16777215,                 :null => false
+    t.datetime "pulishdate",                                      :null => false
+    t.integer  "ty_id",                                           :null => false
     t.integer  "recommended"
     t.datetime "reco_date"
-    t.integer  "state",                           :null => false
+    t.integer  "state",                                           :null => false
+    t.integer  "view",                            :default => 50
   end
 
   add_index "article", ["ty_id"], :name => "type"
@@ -62,15 +63,15 @@ ActiveRecord::Schema.define(:version => 20130611155956) do
 
   create_table "downloads", :force => true do |t|
     t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "content",    :limit => 16777215
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "indexset", :force => true do |t|
     t.string   "module",  :limit => 20,  :null => false
-    t.string   "title",   :limit => 50
-    t.string   "picture", :limit => 200
+    t.string   "title",   :limit => 500
+    t.string   "picture", :limit => 300
     t.string   "url",     :limit => 100
     t.datetime "date",                   :null => false
   end
@@ -98,16 +99,18 @@ ActiveRecord::Schema.define(:version => 20130611155956) do
     t.string   "teshe"
     t.text     "description"
     t.integer  "region_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.integer  "recommended", :default => 0
   end
 
   create_table "product", :force => true do |t|
-    t.string   "prodname",    :limit => 100,      :null => false
+    t.string   "prodname",    :limit => 100,                     :null => false
     t.string   "picture",     :limit => 200
     t.text     "description", :limit => 16777215
-    t.datetime "date",                            :null => false
+    t.datetime "date",                                           :null => false
     t.integer  "category_id"
+    t.integer  "recommended",                     :default => 0
   end
 
   create_table "provinces", :force => true do |t|
@@ -119,6 +122,12 @@ ActiveRecord::Schema.define(:version => 20130611155956) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
+  end
+
+  create_table "pvs", :force => true do |t|
+    t.integer  "count"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "regions", :force => true do |t|
@@ -135,7 +144,7 @@ ActiveRecord::Schema.define(:version => 20130611155956) do
   add_index "regions", ["region_type"], :name => "region_type"
 
   create_table "shenqings", :force => true do |t|
-    t.integer  "type"
+    t.integer  "jtype"
     t.integer  "region_id"
     t.string   "tel"
     t.string   "name"
