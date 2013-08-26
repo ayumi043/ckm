@@ -30,13 +30,8 @@ development:
   # host: localhost 
   username: root
   # password: "LIN7308217" #aliyun
-<<<<<<< HEAD
-  password: ""  # mac
-  # password: "r"  # unix
-=======
   # password: ""  # mac
   password: ""  # unix
->>>>>>> 15c846b391c7bd1f5978546a5d19a4dc90ad88b5
   database: ckm_db
   host: 127.0.0.1
   port: 3306
