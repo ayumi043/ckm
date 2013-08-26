@@ -2,6 +2,8 @@
 <html>
 <head>
   <title><%= yield(:title)%></title>
+  <meta content="<%= yield(:keywords) %>" name="keywords" />
+  <meta content="<%= yield(:description) %>" name="description" />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <link href="http://libs.baidu.com/bootstrap/2.0.4/css/bootstrap.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    "application", :media => "all" %>
@@ -68,7 +70,7 @@
       <div id="flink" class="clearfix">
          
         <% @friendlinks.each do |friendlink| %>
-          <%= link_to friendlink.web_name, friendlink.url, target: "_blank" %>
+          <%= link_to friendlink.web_name, friendlink.url, target: "_blank", rel: "nofollow" %>
         <% end %>
 
       </div>
