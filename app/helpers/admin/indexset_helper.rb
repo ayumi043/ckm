@@ -1,2 +1,0 @@
-module Admin::IndexsetHelper
-end
