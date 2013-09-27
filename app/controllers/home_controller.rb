@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class HomeController < ApplicationController
+  # caches_action :index, :expires_in => 24.hours
 
   def index
     @agents = Region.where(:parent_id => nil).map { |i| 

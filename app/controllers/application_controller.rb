@@ -2,9 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :upload
 
   before_filter :load_menu_item, :rewrite_url
+  
 
   def rewrite_url    
-    redirect_to("http://www.chekuaimei.com#{request.path}", :status => 301)  if request.host == "www.ckm888.com" || request.host == "ckm888.com" || request.host == "121.199.5.92" || request.host == "www.chekuaimei.net"  
+    redirect_to("http://www.chekuaimei.com#{request.path}", :status => 301)  if request.host == "chekuaimei.com" || request.host == "www.ckm888.com" || request.host == "ckm888.com" || request.host == "121.199.5.92" || request.host == "www.chekuaimei.net"  
   end  
 
   def load_menu_item
