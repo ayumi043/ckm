@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   
 
   def rewrite_url    
-    redirect_to("http://www.chekuaimei.com#{request.path}", :status => 301)  if request.host == "www.ckm888.com" || request.host == "ckm888.com" || request.host == "121.199.5.92" || request.host == "www.chekuaimei.net"  
+    redirect_to("http://www.chekuaimei.com#{request.path}", :status => 301)  if request.host != "www.chekuaimei.com" 
   end  
 
   def load_menu_item
