@@ -5,6 +5,7 @@ Ckm::Application.routes.draw do
   post 'upload' => 'uploads#upload'
 
   get "/bbs/" => redirect("/bbs/forum.php")
+  get '/bbs/:name', to: redirect('/bbs/%{name}')
 
   mount UeditorRails::Engine => '/ueditor'
 
