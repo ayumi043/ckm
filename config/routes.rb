@@ -7,7 +7,7 @@ Ckm::Application.routes.draw do
   get "/bbs/" => redirect("/bbs/forum.php")
   # get '/bbs/:name', to: redirect('/bbs/%{name}')
 
-  get '/bbs/:name', to: redirect('http://www.chekuaimei.com/bbs/%{name}'), constraints: lambda { |request| ['www.ckm888.com', 'ckm888.com', '121.199.5.92'].include?(request.host) }
+  get '/bbs/(:name)', to: redirect('http://www.chekuaimei.com/bbs/%{name}'), constraints: lambda { |request| ['www.ckm888.com', 'ckm888.com', '121.199.5.92'].include?(request.host) }
 
   mount UeditorRails::Engine => '/ueditor'
 
