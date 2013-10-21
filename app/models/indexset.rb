@@ -5,6 +5,6 @@ class Indexset < ActiveRecord::Base
 
   set_table_name "indexset"
 
-  validates :module, :presence => { :message => "bu neng wei kong" }
+  validates :module, :presence => { :message => "不能为空" }
 
 end

@@ -1,6 +1,8 @@
+# encoding: utf-8
+
 class Companyinfo < ActiveRecord::Base
   attr_accessible :name, :content
-  validates :name, :presence => { :message => "bu neng wei kong" }
+  validates :name, :presence => { :message => "不能为空" }
 
   set_table_name 'products'
 end
