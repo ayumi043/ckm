@@ -217,12 +217,21 @@
 
 
 <div class="ad1">   
-    <%#= image_tag(indexset.picture) if @indexsets.last.picture %>
+    <% if @indexsets.at(18).url %>
+        <a href="@indexsets.at(18).url"><%= image_tag(@indexsets.at(18).picture) if @indexsets.at(18).picture %></a>
+    <% else %>
+        <%= image_tag(@indexsets.at(18).picture) if @indexsets.at(18).picture %>
+    <% end %>    
     <div class="clos">关闭</div>
 </div>
+
 <div class="ad2">
     <!-- <img src="/assets/s2.jpg"> -->
-    <%#= image_tag(indexset.picture) if @indexsets.last.picture %>
+    <% if @indexsets.at(19).url %>
+        <a href="@indexsets.at(19).url"><%= image_tag(@indexsets.at(19).picture) if @indexsets.at(19).picture %></a>
+    <% else %>
+        <%= image_tag(@indexsets.at(19).picture) if @indexsets.at(19).picture %>
+    <% end %>  
     <div class="clos">关闭</div>
 </div>
     
