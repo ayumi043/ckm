@@ -35,7 +35,7 @@ class Admin::QqsController < ApplicationController
     @qq = Qq.new(params[:qq])
     respond_to do |format|
       if @qq.save
-        format.html { redirect_to admin_qq_url(@qq), notice: '添加成功!' }
+        format.html { redirect_to admin_qqs_url, notice: '添加成功!' }
       else
         # binding.pry
         format.html { render action: "new" }
