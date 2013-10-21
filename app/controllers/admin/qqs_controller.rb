@@ -48,7 +48,7 @@ class Admin::QqsController < ApplicationController
    
     respond_to do |format|
       if @qq.update_attributes(params[:qq])
-        format.html { redirect_to admin_qq_url(@qq), notice: '修改成功!' }
+        format.html { redirect_to admin_qqs_url, notice: '修改成功!' }
       else
         format.html { render action: "edit" }
       end

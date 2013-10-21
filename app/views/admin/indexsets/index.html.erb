@@ -7,9 +7,9 @@
 
 <div class="row-fluid">
 
-<!--   <div>
+<div>
      <a href="<%= new_admin_indexset_path %>" class="btn btn-primary"><i class="icon-plus icon-white"></i> 添加模块设计</a>
-  </div> -->
+</div>
 
   <!-- block -->
   <div class="block">
@@ -23,7 +23,7 @@
                       <td width="55">图片</td>
                       <td width="85">模块名称</td>
                       <th>标题</th>
-                      <td style="overflow: hidden;">url</td>
+                      <td width="100" style="overflow: hidden;">url</td>
                       <th width="120">操作</th>
                   </tr>
               </thead>
@@ -31,7 +31,9 @@
 
                 <% @indexsets.each do |indexset| %>
                   <tr>
-                    <td><div style="width:50px;overflow:hidden;"><%= image_tag(indexset.picture, {:width => "50", :height => "50"}) %></div></td>
+                    <td><div style="width:50px;overflow:hidden;">
+                      <%= image_tag(indexset.picture, {:width => "50", :height => "50"}) if indexset.picture %></div>
+                    </td>
                     <td><%= indexset.module %></td>
                     <td><%= indexset.title %></td>
                     <td><%= indexset.url %></td>

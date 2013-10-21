@@ -215,21 +215,21 @@
     </div>
 </div>
 
-<div class="ad1">
-    <img src="/assets/s1.jpg">
+
+<div class="ad1">   
+    <%#= image_tag(indexset.picture) if @indexsets.last.picture %>
     <div class="clos">关闭</div>
 </div>
 <div class="ad2">
-    <img src="/assets/s2.jpg">
+    <!-- <img src="/assets/s2.jpg"> -->
+    <%#= image_tag(indexset.picture) if @indexsets.last.picture %>
     <div class="clos">关闭</div>
 </div>
     
 <div class="online">
-
     <% @qqs.each do |qq| %>
         <a href="http://wpa.qq.com/msgrd?v=3&uin=<%= qq.number %>&site=qq&menu=yes"><%= qq.bz %></a>
-    <% end %>
-   
+    <% end %>   
     <div class="gotop">Top</div>
 </div>
 
