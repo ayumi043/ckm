@@ -1,9 +1,9 @@
 <% content_for(:nav)  do %>
   <li>
-    <a href="<%= admin_qqs_path %>">友情连接</a><span class="divider">/</span>
+    <a href="<%= admin_qqs_path %>">QQ在线</a><span class="divider">/</span>
   </li>
   <li>
-  <li class="active"><%= @qq.web_name %></li> 
+  <li class="active"><%= @qq.bz %></li> 
 <% end %>
 
 
@@ -38,8 +38,8 @@
 
   <div class="field">
     <%= f.label :号码 %>
-    <%= f.text_field :url %>
-    <span style="color:#f60;"><%= "#{errors[:url].first}" if errors[:number] %></span>
+    <%= f.text_field :number %>
+    <span style="color:#f60;"><%= "#{errors[:number].first}" if errors[:number] %></span>
   </div>
 
   <div class="actions">
