@@ -218,7 +218,7 @@
 
 <div class="ad1">   
     <% if @indexsets.at(7).url %>
-        <a href="@indexsets.at(18).url"><%= image_tag(@indexsets.at(7).picture) if @indexsets.at(7).picture %></a>
+        <a href="<%= @indexsets.at(7).url %>"><%= image_tag(@indexsets.at(7).picture) if @indexsets.at(7).picture %> </a>
     <% else %>
         <%= image_tag(@indexsets.at(7).picture) if @indexsets.at(7).picture %>
     <% end %>    
@@ -228,7 +228,7 @@
 <div class="ad2">
     <!-- <img src="/assets/s2.jpg"> -->
     <% if @indexsets.at(8).url %>
-        <a href="@indexsets.at(8).url"><%= image_tag(@indexsets.at(8).picture) if @indexsets.at(8).picture %></a>
+        <a href="<%= @indexsets.at(8).url %>"><%= image_tag(@indexsets.at(8).picture) if @indexsets.at(8).picture %></a>
     <% else %>
         <%= image_tag(@indexsets.at(8).picture) if @indexsets.at(8).picture %>
     <% end %>  
