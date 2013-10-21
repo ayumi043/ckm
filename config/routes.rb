@@ -34,6 +34,8 @@ Ckm::Application.routes.draw do
     get 'showpartners/(:id)' => 'agents#get_partners'
     get 'regions/(:id)' => 'partners#get_regions'
 
+
+    resources :qqs
     resources :friendlinks
     resources :shenqings
     resources :jiamengs

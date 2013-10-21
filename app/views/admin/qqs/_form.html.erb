@@ -1,0 +1,48 @@
+<% content_for(:nav)  do %>
+  <li>
+    <a href="<%= admin_qqs_path %>">友情连接</a><span class="divider">/</span>
+  </li>
+  <li>
+  <li class="active"><%= @qq.web_name %></li> 
+<% end %>
+
+
+<%= form_for [:admin, @qq] do |f| %>
+
+  <% if @qq.errors.any? %>
+    <div id="error_explanation">
+      
+      <div class="alert alert-error">
+        <button class="close" data-dismiss="alert">&times;</button>
+        <strong>错误!</strong> 
+        <span>发生了<%= pluralize(@qq.errors.count, "") %>个错误！</span>
+        <ul>
+        <% @qq.errors.messages.each do |msg| %>
+          <li><%= msg.last.first %></li>
+        <% end %>
+        </ul>
+      </div>
+
+    </div>
+  <% end %>
+
+  <% errors = @qq.errors.messages %>
+
+  <div class="field">
+    <span>
+      <%= f.label :名称 %>
+      <input type="text" name="qq[bz]" value="<%= @qq.bz %>" />
+    </span>
+    <span style="color:#f60;"><%= "#{errors[:bz].first}" if errors[:bz] %></span>
+  </div>  
+
+  <div class="field">
+    <%= f.label :号码 %>
+    <%= f.text_field :url %>
+    <span style="color:#f60;"><%= "#{errors[:url].first}" if errors[:number] %></span>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "确 定" %>
+  </div>
+<% end %>

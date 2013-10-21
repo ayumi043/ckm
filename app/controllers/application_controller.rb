@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   
 
   def rewrite_url    
+    return if request.host == "localhost"
     redirect_to("http://www.chekuaimei.com#{request.path}", :status => 301)  if request.host != "www.chekuaimei.com" 
   end  
 
