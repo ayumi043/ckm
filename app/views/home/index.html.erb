@@ -3,6 +3,9 @@
 <% keywords "环氧免腻漆面修复,中度划痕极速修复,红外线漆面硬化,高分子玻璃疏水,玻璃坑洞极速修复,车身凹坑极速修复,车内长效除雾,车漆养护,发动机养护理,汽车保养,汽车美容加盟连锁店" %>
 <% content_for :head do %>
 <link href="/resource/jquery.vector-map.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    .pic_auto{width: 284px;height: 162px; overflow: hidden;display: block;}
+</style>
 <script src="/resource/jquery.vector-map.js" type="text/javascript"></script>
 <script src="/resource/china-zh.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -148,7 +151,7 @@
                     <% @services.each do |product| %>
                     <li>
                         <div class="name"><%= link_to product.prodname, service_path(product) %></div>
-                        <%= link_to image_tag(product.picture, :width => 284, :height => 162), service_path(product) %>                   
+                        <%= link_to image_tag(product.picture, :width => 284, :class => "pic_auto"), service_path(product) %>                   
                     </li>
                     <% end %>
                 </ul> 
@@ -216,14 +219,14 @@
 </div>
 
 
-<% if @indexsets.at(11).url %>
+<% if @indexsets.at(11).try(:url) %>
     <div class="ad1">   
         <a href="<%= @indexsets.at(11).url %>"><%= image_tag(@indexsets.at(11).picture) if @indexsets.at(11).picture %> </a>
         <div class="clos">关闭</div>
     </div>
 <% end %> 
 
-<% if @indexsets.at(12).url %>
+<% if @indexsets.at(12).try(:url) %>
     <div class="ad2">   
         <a href="<%= @indexsets.at(12).url %>"><%= image_tag(@indexsets.at(12).picture) if @indexsets.at(12).picture %> </a>
         <div class="clos">关闭</div>
