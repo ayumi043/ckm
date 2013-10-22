@@ -151,7 +151,7 @@
                     <% @services.each do |product| %>
                     <li>
                         <div class="name"><%= link_to product.prodname, service_path(product) %></div>
-                        <%= link_to image_tag(product.picture, :width => 284, :class => "pic_auto"), service_path(product) %>                   
+                        <%= link_to image_tag(product.picture, :width => 284), service_path(product), :class => "pic_auto" %>                   
                     </li>
                     <% end %>
                 </ul> 
